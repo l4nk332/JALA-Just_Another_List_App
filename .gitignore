@@ -1,0 +1,6 @@
+#File system files
+.DS_Store
+Thumbs.db
+
+#Node Modules Locally Installed
+node_modules/*
