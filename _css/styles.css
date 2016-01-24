@@ -1,0 +1,60 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: rgb(237, 190, 151);
+}
+
+h1 {
+  text-align: center;
+}
+
+.list-container {
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  background-color: rgb(94, 209, 168);
+  border-radius: 1em;
+  overflow-y: scroll;
+}
+
+.list-header {
+  width: 45%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 5px 0px;
+}
+
+.list-header input {
+  width: 100%;
+  margin: 30px auto;
+  font-size: 35px;
+  text-align: center;
+  background-color: rgb(237, 190, 151);
+  border: rgb(237, 190, 151);
+}
+
+.list-item {
+  width: 85%;
+  display: block;
+  margin: 5px;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  list-style: none;
+  font-size: 17px;
+}
+
+.list-item .check {
+  margin: 5px;
+}
+
+.list-item .text {
+  width: 80%;
+  background-color: rgb(94, 209, 168);
+  border: rgb(94, 209, 168);
+}
