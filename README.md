@@ -32,3 +32,13 @@ project and simply enter:
 This will install any of the dependencies that are necessary for
 the application and not found on the computer or within the
 *node_modules* folder within the working directory.
+
+####Other Dependencies
+There are a few other dependencies that will be used in JALA.
+These dependencies will be linked to via [cdnjs](https://cdnjs.com/) in the
+_index.html_ file and therefore will not need to be downloaded or
+installed unless upon preference (e.g allow JALA to work offline):
+  - [jQuery](https://jquery.com/)
+  - [jQuery UI](https://jqueryui.com/)
+  - [Normalize](https://necolas.github.io/normalize.css/)
+  - [Babel](https://babeljs.io/)
