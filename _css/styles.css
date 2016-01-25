@@ -1,7 +1,6 @@
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -48,13 +47,27 @@ h1 {
   list-style: none;
   font-size: 17px;
 }
-
 .list-item .check {
   margin: 5px;
 }
-
 .list-item .text {
   width: 80%;
   background-color: rgb(94, 209, 168);
   border: rgb(94, 209, 168);
+}
+
+.deleteIcon {
+  font-size: 18px;
+  margin-left: 20px;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.strikeToggle {
+  opacity: 0.3;
+  text-decoration: line-through;
+}
+
+.hiddenToggle {
+  display: none;
 }
