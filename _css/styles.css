@@ -1,3 +1,5 @@
+/* Color Palette found: http://paletton.com/palette.php?uid=53p0V0kno-e9AUeh-JpuLumvIjU */
+
 html {
   box-sizing: border-box;
 }
@@ -6,7 +8,7 @@ html {
 }
 
 body {
-  background-color: rgb(98, 201, 252);
+  background-color: rgb(51, 142, 172);
 }
 
 h1 {
@@ -14,11 +16,15 @@ h1 {
 }
 
 #hiddenButton {
-
+  border-radius: 0.5em;
+  border: 2px solid rgba(138, 107, 211, 0.8);
+  background-color: rgba(138, 107, 211, 0.7);
 }
 
 #addItemButton {
-
+  border-radius: 0.5em;
+  border: 2px solid rgba(138, 107, 211, 0.8);
+  background-color: rgba(138, 107, 211, 0.7);
 }
 
 
@@ -26,7 +32,7 @@ h1 {
   width: 400px;
   height: 400px;
   margin: auto;
-  background-color: rgba(76, 152, 109, 0.8);
+  background-color: rgba(182, 242, 109, 0.7);
   border-radius: 1em;
   overflow-y: scroll;
 }
@@ -43,8 +49,8 @@ h1 {
   margin: 30px auto;
   font-size: 35px;
   text-align: center;
-  background-color: rgb(98, 201, 252);
-  border: rgb(98, 201, 252);
+  background-color: rgb(51, 142, 172);
+  border: rgb(51, 142, 172);
 }
 
 .list-item {
