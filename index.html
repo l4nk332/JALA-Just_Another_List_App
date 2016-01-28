@@ -6,12 +6,10 @@
     <title>JALA: Just Another List App</title>
     <!--Load Babel-core-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js"></script>
-    <!--Load jquery-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
-    <!--Load jquery-ui-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <!--Load normalize.css-->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <!--Load jquery-ui css stylesheet -->
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="./_css/styles.css">
   </head>
   <body>
@@ -22,21 +20,25 @@
     </div>
     <div class="clouds cloudA"></div>
     <div class="clouds cloudB"></div>
-    <form class="list-container">
-        <ul>
-          <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
-          <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
-          <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
-          <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
-          <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
-          <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
-          <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
-          <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
-          <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
-          <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
-          <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
-        </ul>
-    </form>
+      <form id="list-container">
+          <ul>
+            <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
+            <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
+            <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
+            <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
+            <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
+            <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
+            <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
+            <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
+            <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
+            <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
+            <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
+          </ul>
+      </form>
+  <!--Load jquery-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <!--Load jquery-ui-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <!--Load main.js file-->
   <script type="text/javascript" src="./_script/main.js"></script>
   </body>

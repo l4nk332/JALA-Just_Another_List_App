@@ -17,18 +17,27 @@ h1 {
 
 #hiddenButton {
   border-radius: 0.5em;
+  transition: background-color 0.2s linear;
   border: 2px solid rgba(138, 107, 211, 0.8);
   background-color: rgba(138, 107, 211, 0.7);
+}
+
+#hiddenButton:hover {
+  background-color: rgba(194, 174, 238, 0.7);
 }
 
 #addItemButton {
   border-radius: 0.5em;
+  transition: background-color 0.2s linear;
   border: 2px solid rgba(138, 107, 211, 0.8);
   background-color: rgba(138, 107, 211, 0.7);
 }
 
+#addItemButton:hover {
+  background-color: rgba(194, 174, 238, 0.7);
+}
 
-.list-container {
+#list-container {
   width: 400px;
   height: 400px;
   margin: auto;
