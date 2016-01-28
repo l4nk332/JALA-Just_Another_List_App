@@ -126,6 +126,15 @@ h1 {
   animation: drift 35s linear 10s infinite backwards;
 }
 
+.cloudC {
+  top: 440px;
+  z-index: -300;
+  -webkit-animation: drift 45s linear 20s infinite backwards;
+  -moz-animation: drift 45s linear 20s infinite backwards;
+  -o-animation: drift 45s linear 20s infinite backwards;
+  animation: drift 45s linear 20s infinite backwards;
+}
+
 @-webkit-keyframes drift {
   from{transform: translateX(-300px);}
   to{transform: translateX(1400px);}
