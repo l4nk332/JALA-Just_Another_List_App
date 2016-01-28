@@ -8,7 +8,9 @@ html {
 }
 
 body {
+  width: 100%;
   background-color: rgb(51, 142, 172);
+  position: fixed;
 }
 
 h1 {
@@ -18,23 +20,23 @@ h1 {
 #hiddenButton {
   border-radius: 0.5em;
   transition: background-color 0.2s linear;
-  border: 2px solid rgba(138, 107, 211, 0.8);
-  background-color: rgba(138, 107, 211, 0.7);
+  border: 2px solid rgba(255, 190, 115, 0.8);
+  background-color: rgba(255, 190, 115, 0.7);
 }
 
 #hiddenButton:hover {
-  background-color: rgba(194, 174, 238, 0.7);
+  background-color: rgba(255, 220, 179, 0.7);
 }
 
 #addItemButton {
   border-radius: 0.5em;
   transition: background-color 0.2s linear;
-  border: 2px solid rgba(138, 107, 211, 0.8);
-  background-color: rgba(138, 107, 211, 0.7);
+  border: 2px solid rgba(255, 190, 115, 0.8);
+  background-color: rgba(255, 190, 115, 0.7);
 }
 
 #addItemButton:hover {
-  background-color: rgba(194, 174, 238, 0.7);
+  background-color: rgba(255, 220, 179, 0.7);
 }
 
 #list-container {
