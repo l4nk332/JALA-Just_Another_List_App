@@ -5,8 +5,6 @@ into JALA but have not been:
 
 ###Front-end:
 
-  - Add ('+') button needs to append a new list-item to the list.
-
   - Button focus ring needs to be removed or reduced.
 
   - Buttons need a color change on :focus as well as :hover.
@@ -19,7 +17,6 @@ into JALA but have not been:
   - A new font (not default) needs to be implemented into
     JALA's styles.
 
-  - It needs to be easier to click and drag list items.
 
 ###Back-end:
 
