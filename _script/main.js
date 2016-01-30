@@ -60,10 +60,7 @@ $(document).ready(function() {
   // Allow list-item to be dragged and moved
   $("ul").sortable({
     cursor: "move",
-    containment: ".list-container"
+    containment: "#list-container",
   });
-
-  // Allow list to be resized
-  $(".list-container").resizable();
 
 });

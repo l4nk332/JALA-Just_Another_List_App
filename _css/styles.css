@@ -42,7 +42,7 @@ h1 {
 #list-container {
   width: 400px;
   height: 400px;
-  margin: auto;
+  margin: 10px auto;
   background-color: rgba(182, 242, 109, 0.7);
   border-radius: 1em;
   overflow-y: scroll;
