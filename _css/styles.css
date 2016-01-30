@@ -65,6 +65,7 @@ h1 {
 }
 
 .list-item {
+  cursor: pointer;
   width: 85%;
   display: block;
   margin: 5px;
