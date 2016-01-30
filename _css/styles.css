@@ -28,6 +28,10 @@ h1 {
   background-color: rgba(255, 220, 179, 0.7);
 }
 
+#hiddenButton:focus {
+  outline: 0;
+}
+
 #addItemButton {
   border-radius: 0.5em;
   transition: background-color 0.2s linear;
@@ -37,6 +41,10 @@ h1 {
 
 #addItemButton:hover {
   background-color: rgba(255, 220, 179, 0.7);
+}
+
+#addItemButton:focus {
+  outline: 0;
 }
 
 #list-container {
