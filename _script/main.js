@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-  // If text field is empty then checkbox is disabled and
+    // If text field is empty then checkbox is disabled and
   // blurred
-  $(".text").blur(function() {
+  $("body").on("blur", ".text", function() {
     if(!this.value) {
       $(this).prev(".check").addClass("strikeToggle");
       $(this).prev(".check").prop("disabled", true);
@@ -13,7 +13,7 @@ $(document).ready(function() {
   });
   // Toggle strikethrough item and move it to the top
   // when checked is true.
-  $(".check").on('click', function() {
+  $("body").on('click', ".check", function() {
   $(this).next('.text').toggleClass("strikeToggle");
   if($(this).next(".text").prop("disabled")) {
       $(this).next('.text').prop("disabled", false);
@@ -23,7 +23,7 @@ $(document).ready(function() {
   });
 
   // Toggle Show/Hide Completed
-  $("#hiddenButton").click(function() {
+  $("body").on("click", "#hiddenButton", function() {
     $("ul").children("li").each(function () {
       if ($(this).children(".check").prop("checked")) {
         $(this).toggleClass("hiddenToggle");
@@ -33,10 +33,11 @@ $(document).ready(function() {
 
 
   // On hover show 'X'
-  $(".list-item").hover(
+  $("body").on("mouseenter", ".list-item",
     function() {
       $(this).children(".deleteIcon").removeClass("hiddenToggle");
-    },
+    });
+  $("body").on("mouseleave", ".list-item",
     function() {
       $(this).children(".deleteIcon").addClass("hiddenToggle");
     }
@@ -45,19 +46,24 @@ $(document).ready(function() {
 
   // 'X'.onclick remove item
   // and delete the node element
-  $(".deleteIcon").click( function() {
-    $(this).parent("li").fadeOut(300, function() { $(this).remove(); });
+  $("body").on("click", ".deleteIcon", function() {
+  $(this).parent("li").fadeOut(300, function() { $(this).remove(); });
   });
 
   // Create a way to add list items
   // appending them to the end using templating
-
+  $("body").on("click", "#addItemButton", function() {
+    $("ul").append("<li class='list-item'><input type='checkbox' class='check strikeToggle' disabled><input class='text'/><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
+  });
 
 
   // Allow list-item to be dragged and moved
   $("ul").sortable({
     cursor: "move",
-    containment: "#list-container"
+    containment: ".list-container"
   });
-  
+
+  // Allow list to be resized
+  $(".list-container").resizable();
+
 });
