@@ -57,7 +57,7 @@ h1 {
 }
 
 .list-header {
-  width: 45%;
+  width: 400px;
   text-align: center;
   margin: 0 auto;
   padding: 5px 0px;
@@ -66,10 +66,17 @@ h1 {
 .list-header input {
   width: 100%;
   margin: 30px auto;
+  padding: 5px;
   font-size: 35px;
   text-align: center;
   background-color: rgb(51, 142, 172);
   border: rgb(51, 142, 172);
+}
+
+.list-header input:focus {
+  outline: 0;
+  border: 0.5px solid rgba(255,255,255,0.1);
+  border-radius: 0.1em;
 }
 
 .list-item {
@@ -90,6 +97,10 @@ h1 {
   background: transparent;
   background-color: rgba(76, 152, 109, 0);
   border: rgba(76, 152, 109, 0);
+}
+
+.list-item .text:focus {
+  outline: 0;
 }
 
 .deleteIcon {
