@@ -65,6 +65,7 @@ h1 {
 
 .list-header input {
   width: 100%;
+  font-family: 'Permanent Marker', cursive;
   margin: 30px auto;
   padding: 5px;
   font-size: 35px;
@@ -94,6 +95,8 @@ h1 {
 }
 .list-item .text {
   width: 80%;
+  font-family: 'Anaheim', sans-serif;
+  font-size: 1.2em;
   background: transparent;
   background-color: rgba(76, 152, 109, 0);
   border: rgba(76, 152, 109, 0);
