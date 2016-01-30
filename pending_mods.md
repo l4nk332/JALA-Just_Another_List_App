@@ -17,6 +17,11 @@ into JALA but have not been:
   - A new font (not default) needs to be implemented into
     JALA's styles.
 
+  - Hide scrollbar when not scrolling.
+
+  - Add functionality to allow batch deletion of all checked
+    items.
+
 
 ###Back-end:
 
