@@ -5,9 +5,6 @@ into JALA but have not been:
 
 ###Front-end:
 
-  - Hide scrollbar when not scrolling.
-
-
   - Fix bug when Toggling Hidden items and then checking additional
     ones.
 
