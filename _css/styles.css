@@ -18,6 +18,8 @@ h1 {
 }
 
 .button {
+  padding: 3px 5px;
+  font-size: 1.1em;
   border-radius: 0.5em;
   transition: background-color 0.2s linear;
   border: 2px solid rgba(255, 190, 115, 0.8);
@@ -121,6 +123,11 @@ h1 {
   height: 40px;
   margin: auto;
   text-align: center;
+}
+
+#emailButton {
+  font-size: 1.3em;
+  padding: 4px 6px;
 }
 
 /* CSS Animation Section */
