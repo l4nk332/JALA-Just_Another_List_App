@@ -17,43 +17,23 @@ h1 {
   text-align: center;
 }
 
-#hiddenButton {
+.button {
   border-radius: 0.5em;
   transition: background-color 0.2s linear;
   border: 2px solid rgba(255, 190, 115, 0.8);
   background-color: rgba(255, 190, 115, 0.7);
 }
 
-#hiddenButton:hover {
+.button:hover {
   background-color: rgba(255, 220, 179, 0.7);
 }
 
-#hiddenButton:focus {
+.button:focus {
   outline: 0;
 }
 
-#addItemButton {
-  border-radius: 0.5em;
-  transition: background-color 0.2s linear;
-  border: 2px solid rgba(255, 190, 115, 0.8);
-  background-color: rgba(255, 190, 115, 0.7);
-}
-
-#addItemButton:hover {
-  background-color: rgba(255, 220, 179, 0.7);
-}
-
-#addItemButton:focus {
-  outline: 0;
-}
-
-#list-container {
-  width: 400px;
-  height: 400px;
-  margin: 10px auto;
-  background-color: rgba(182, 242, 109, 0.7);
-  border-radius: 1em;
-  overflow-y: scroll;
+#removeButton {
+  margin-right: 35px;
 }
 
 .list-header {
@@ -78,6 +58,15 @@ h1 {
   outline: 0;
   border: 0.5px solid rgba(255,255,255,0.1);
   border-radius: 0.1em;
+}
+
+#list-container {
+  width: 400px;
+  height: 400px;
+  margin: 10px auto;
+  background-color: rgba(182, 242, 109, 0.7);
+  border-radius: 1em;
+  overflow-y: scroll;
 }
 
 .list-item {
@@ -122,6 +111,13 @@ h1 {
   display: none;
 }
 
+#list-footer {
+  position: relative;
+  width: 400px;
+  height: 40px;
+  margin: auto;
+  text-align: center;
+}
 
 /* CSS Animation Section */
 

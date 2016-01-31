@@ -17,8 +17,9 @@
   <body>
     <div class="list-header">
         <input value="My List">
-      <button type="button" id="hiddenButton">Toggle Hidden</button>
-      <button type="button" id="addItemButton">+</button>
+      <button type="button" class="button" id="removeButton">Remove Checked</button>
+      <button type="button" class="button" id="hiddenButton">Toggle Hidden</button>
+      <button type="button" class="button" id="addItemButton">+</button>
     </div>
     <div class="clouds cloudA"></div>
     <div class="clouds cloudB"></div>
@@ -35,6 +36,9 @@
             <li class="list-item"><input type="checkbox" class="check strikeToggle" disabled><input class="text"/><span class="hiddenToggle deleteIcon">&#x2715;</span></li>
           </ul>
       </form>
+      <div id="list-footer">
+        <button type="button" class="button" id="emailButton">Send This List</button>
+      </div>
   <!--Load jquery-->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
   <!--Load jquery-ui-->
