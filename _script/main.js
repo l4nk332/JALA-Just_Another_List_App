@@ -47,7 +47,16 @@ $(document).ready(function() {
   // 'X'.onclick remove item
   // and delete the node element
   $("body").on("click", ".deleteIcon", function() {
-  $(this).parent("li").fadeOut(300, function() { $(this).remove(); });
+    $(this).parent("li").fadeOut(300, function() { $(this).remove(); });
+  });
+
+  // All checked items will be removed when 'remove button' is clicked.
+  $("body").on("click", "#removeButton", function() {
+    $("ul").children("li").each(function () {
+      if ($(this).children(".check").prop("checked")) {
+        $(this).remove();
+      }
+    });
   });
 
   // Create a way to add list items
