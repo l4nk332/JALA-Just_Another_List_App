@@ -66,7 +66,11 @@ h1 {
   margin: 10px auto;
   background-color: rgba(182, 242, 109, 0.7);
   border-radius: 1em;
-  overflow-y: scroll;
+  overflow-y: hidden;
+}
+
+#list-container:hover {
+  overflow-y: auto;
 }
 
 .list-item {
