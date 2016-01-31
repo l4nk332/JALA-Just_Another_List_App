@@ -5,17 +5,11 @@ into JALA but have not been:
 
 ###Front-end:
 
-  - Email button needs to be added at the bottom of the list.
-    (Look below for server-side details on this)
-
   - Hide scrollbar when not scrolling.
 
-  - Add functionality to allow batch deletion of all checked
-    items.
 
-  - Limit number of characters used in list-items and list-header
-    to avoid overflow.
-
+  - Fix bug when Toggling Hidden items and then checking additional
+    ones.
 
 ###Back-end:
 

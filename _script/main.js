@@ -11,6 +11,7 @@ $(document).ready(function() {
       $(this).prev(".check").prop("disabled", false);
     }
   });
+
   // Toggle strikethrough item and move it to the top
   // when checked is true.
   $("body").on('click', ".check", function() {
@@ -62,7 +63,7 @@ $(document).ready(function() {
   // Create a way to add list items
   // appending them to the end using templating
   $("body").on("click", "#addItemButton", function() {
-    $("ul").append("<li class='list-item'><input type='checkbox' class='check strikeToggle' disabled><input class='text'/><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
+    $("ul").append("<li class='list-item'><input type='checkbox' class='check strikeToggle' disabled><input class='text' maxlength='30'><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
   });
 
 
