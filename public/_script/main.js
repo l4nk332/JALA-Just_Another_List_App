@@ -91,7 +91,11 @@ $(document).ready(function() {
   $.getJSON('/jala-api', function(terms) {
     // For each term in jala-api append to list
     terms.forEach(function(term) {
-      $("ul").append("<li class='list-item'><input type='checkbox' class='check'><input class='text' maxlength='30' value=" + term.listText + "><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
+      if (term.listText) {
+        $("ul").append("<li class='list-item'><input type='checkbox' class='check'><input class='text' maxlength='30' value=" + term.listText + "><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
+      } else if (term.listTitle) {
+        $(".list-header").children("input").val(term.listTitle);
+      }
     });
     // If the api has less than 8 terms fill in (append)
     // enough empty items to fill list.
@@ -108,10 +112,12 @@ $(document).ready(function() {
 
   $("body").on("click", "#saveButton", function() {
     var jsonArr = [];
+    var jsonTitle = $(".list-header").children("input").val();
+    //console.log(jsonTitle);
     $("ul").children("li").each(function () {
       jsonArr.push({listText: $(this).children(".text").val()});
     });
-    $.post('/jala-api', {listArr: JSON.stringify(jsonArr)});
+    $.post('/jala-api', {listTitle: jsonTitle, listArr: JSON.stringify(jsonArr)});
 
   });
 

@@ -38,10 +38,13 @@ app.get("/jala-api", function(req, res) {
 // with updated list.
 app.post("/jala-api", function(req, res) {
   //console.log(req.body);
-  console.log(JSON.parse(req.body.listArr));
+  //console.log(JSON.parse(req.body.listArr));
   var listArr = (JSON.parse(req.body.listArr));
   // Clear the api
   testItems = [];
+  // Update the list-header
+  testItems.push({listTitle: req.body.listTitle});
+  //console.log(req.body.listTitle);
   // Push new list-item into jala-api if it has some
   // form of text that passes the regex
   //console.log(/^\s*\w/g.test(req.body.listText));
