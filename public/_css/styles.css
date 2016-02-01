@@ -39,6 +39,10 @@ h1 {
   margin-right: 35px;
 }
 
+#addItemButton {
+  margin-left: 5px;
+}
+
 .list-header {
   width: 400px;
   text-align: center;
@@ -127,6 +131,7 @@ h1 {
 }
 
 #emailButton {
+  margin: 0px 20px;
   font-size: 1.3em;
   padding: 4px 6px;
 }
