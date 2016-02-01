@@ -103,5 +103,17 @@ $(document).ready(function() {
   });
 
 
+  // Make a POST request when 'Save' button is clicked
+  // and save current state of list to the jale-api
+
+  $("body").on("click", "#saveButton", function() {
+    var jsonArr = [];
+    $("ul").children("li").each(function () {
+      jsonArr.push({listText: $(this).children(".text").val()});
+    });
+    $.post('/jala-api', {listArr: JSON.stringify(jsonArr)});
+
+  });
+
 
 });

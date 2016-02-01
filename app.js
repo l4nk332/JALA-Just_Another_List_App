@@ -10,7 +10,7 @@ var app = express();
 var testItems = [
   {
     listText: "'To-do...'"
-  },
+  }
 ];
 
 // This will parse both json and http encoded data
@@ -34,9 +34,24 @@ app.get("/jala-api", function(req, res) {
   res.json(testItems);
 });
 
+// Listens for a POST req provided and replaces api
+// with updated list.
 app.post("/jala-api", function(req, res) {
-  // Push new list-item into jala-api
-  testItems.push(req.body);
+  //console.log(req.body);
+  console.log(JSON.parse(req.body.listArr));
+  var listArr = (JSON.parse(req.body.listArr));
+  // Clear the api
+  testItems = [];
+  // Push new list-item into jala-api if it has some
+  // form of text that passes the regex
+  //console.log(/^\s*\w/g.test(req.body.listText));
+  listArr.forEach(function(item) {
+    if (/^\s*\w/g.test(item.listText)) {
+      // The ' ' allow for spaces to be saved to api
+      item.listText = "'" + item.listText + "'";
+      testItems.push(item);
+    }
+  });
   // Respond with updated api
   res.json(testItems);
 });
