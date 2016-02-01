@@ -73,4 +73,23 @@ $(document).ready(function() {
     containment: "body",
   });
 
+
+  // Make a GET request for the json data at jala-api
+
+  $.getJSON('/jala-api', function(terms) {
+    // For each term in jala-api append to list
+    terms.forEach(function(term) {
+      $("ul").append("<li class='list-item'><input type='checkbox' class='check'><input class='text' maxlength='30' value=" + term.listText + "><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
+    });
+    // If the api has less than 8 terms fill in (append)
+    // enough empty items to fill list.
+    if (terms.length < 8) {
+      for (var i = 0; i < 8 - terms.length; i++){
+        $("ul").append("<li class='list-item'><input type='checkbox' class='check strikeToggle' disabled><input class='text' maxlength='30'><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
+      }
+    }
+  });
+
+
+
 });

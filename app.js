@@ -2,6 +2,17 @@ var express = require("express");
 
 var app = express();
 
+var testItems = [
+  {
+    listText: "'Item One'"
+  },
+  {
+    listText: "'Item Two'"
+  },
+  {
+    listText: "Item Three"
+  }
+];
 
 app.use(function(req, res, next) {
 
@@ -11,6 +22,9 @@ app.use(function(req, res, next) {
 
 app.use(express.static("./public"));
 
+app.get("/jala-api", function(req, res) {
+  res.json(testItems);
+});
 
 app.listen(3000);
 
