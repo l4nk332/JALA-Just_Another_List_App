@@ -5,6 +5,9 @@ into JALA but have not been:
 
 ###Front-end:
 
+  - Add a "Save" button that will make a post request
+    to save the list and its title.
+
   - Fix bug when Toggling Hidden items and then checking additional
     ones.
 
@@ -13,7 +16,5 @@ into JALA but have not been:
   - Email implementation will most likely utilize the [nodemailer](https://www.npmjs.com/package/nodemailer)
     module, allowing the user to email the list as plain-text.
 
-  - A node web-socket interface will need to be utilized so that
-    changes to the list stream-line to each user.
-    (Best option might be [socket.io](http://socket.io/) for
-    backward compatibility between web-browsers)
+  - Link-up server-side response for post requests to the
+    jala-api.

@@ -49,6 +49,11 @@ $(document).ready(function() {
   // and delete the node element
   $("body").on("click", ".deleteIcon", function() {
     $(this).parent("li").fadeOut(300, function() { $(this).remove(); });
+    // Make a DELETE request for the json data at jala-api
+    $.ajax({
+        url: '/jala-api/' + $(this).siblings(".text").val(),
+        type: 'DELETE'
+    });
   });
 
   // All checked items will be removed when 'remove button' is clicked.
@@ -56,6 +61,13 @@ $(document).ready(function() {
     $("ul").children("li").each(function () {
       if ($(this).children(".check").prop("checked")) {
         $(this).remove();
+
+        // Make a DELETE request for the json data at jala-api
+        $.ajax({
+            url: '/jala-api/' + $(this).children(".text").val(),
+            type: 'DELETE'
+        });
+
       }
     });
   });
