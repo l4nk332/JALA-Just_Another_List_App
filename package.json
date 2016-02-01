@@ -1,0 +1,30 @@
+{
+  "name": "jala-just_another_list_app",
+  "version": "1.0.0",
+  "description": "A simple to-do list web application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/l4nk332/JALA-Just_Another_List_App.git"
+  },
+  "keywords": [
+    "list",
+    "to-do",
+    "notes",
+    "application"
+  ],
+  "author": "Ian Jabour",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/l4nk332/JALA-Just_Another_List_App/issues"
+  },
+  "homepage": "https://github.com/l4nk332/JALA-Just_Another_List_App#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.4"
+  }
+}
