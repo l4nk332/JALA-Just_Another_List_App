@@ -4,3 +4,6 @@ Thumbs.db
 
 #Node Modules Locally Installed
 node_modules/*
+
+#Saved lists
+lists/*.txt
