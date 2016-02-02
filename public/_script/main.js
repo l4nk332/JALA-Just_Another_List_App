@@ -134,6 +134,7 @@ $(document).ready(function() {
       // multiple post requests aren't accidentally
       // made
       $("#saveButton").addClass("disabled");
+      $("#saveButton").prop("disabled", true);
       // Add href with value when save clicked
       // Change the Export button to link to the correct file
       $(".downloadLink").attr("href", "./lists/" + jsonTitle + ".txt");
@@ -141,6 +142,7 @@ $(document).ready(function() {
       // Enable 'save' button
       setTimeout(function() {
         $("#saveButton").removeClass("disabled");
+        $("#saveButton").prop("disabled", false);
       }, 1500);
     });
 
