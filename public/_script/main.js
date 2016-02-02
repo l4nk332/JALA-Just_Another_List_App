@@ -1,5 +1,7 @@
 $(document).ready(function() {
-
+  // This is a boolean that keeps track of the hiddenToggle
+  // being either on or off.
+  var hidden = false;
     // If text field is empty then checkbox is disabled and
   // blurred
   $("body").on("blur", ".text", function() {
@@ -15,13 +17,19 @@ $(document).ready(function() {
   // Toggle strikethrough item and move it to the top
   // when checked is true.
   $("body").on('click', ".check", function() {
-  $(this).next('.text').toggleClass("strikeToggle");
-  if($(this).next(".text").prop("disabled")) {
+    $(this).next('.text').toggleClass("strikeToggle");
+
+    if($(this).next(".text").prop("disabled")) {
       $(this).next('.text').prop("disabled", false);
     } else {
       $(this).next('.text').prop("disabled", true);
+      // If Hidden Toggle is on then hide the checked item
+      if (hidden) {
+        $(this).parent("li").addClass("hiddenToggle");
+      }
     }
   });
+
 
   // Toggle Show/Hide Completed
   $("body").on("click", "#hiddenButton", function() {
@@ -30,6 +38,9 @@ $(document).ready(function() {
         $(this).toggleClass("hiddenToggle");
       }
     });
+    hidden = (!hidden);
+    // Toggle a class that shows if toggleHidden is enabled
+    $(this).toggleClass("toggleEnabled");
   });
 
 

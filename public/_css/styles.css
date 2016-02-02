@@ -126,6 +126,21 @@ h1 {
   display: none;
 }
 
+.toggleEnabled {
+  border: 2px solid rgba(255, 190, 115, 0.5);
+  background-color: rgba(255, 190, 115, 1);
+}
+
+.toggleEnabled:hover {
+  background-color: rgba(255, 220, 179, 1);
+  border: 2px solid rgba(255, 190, 115, 1);
+}
+
+.toggleEnabled:active {
+  background-color: rgba(255, 220, 179, 0.3);
+}
+
+
 #list-footer {
   position: relative;
   width: 400px;
