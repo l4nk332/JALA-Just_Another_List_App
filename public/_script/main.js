@@ -121,4 +121,27 @@ $(document).ready(function() {
 
   });
 
+
+
+  // Make a GET request to the jala-save route that will
+  // allow for .txt version of the file to be downloaded.
+  $("body").on("click", "#exportButton", function() {
+    // Make a POST request to update the api-data
+    var jsonArr = [];
+    var jsonTitle = $(".list-header").children("input").val();
+    //console.log(jsonTitle);
+    $("ul").children("li").each(function () {
+      jsonArr.push({listText: $(this).children(".text").val()});
+    });
+    $.post('/jala-api', {listTitle: jsonTitle, listArr: JSON.stringify(jsonArr)});
+    // Make get request to create local version of .txt file
+    // and download
+    $.get("/jala-download", function(file) {
+      //Do something with file
+    });
+
+  });
+
+
+
 });
