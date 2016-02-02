@@ -5,11 +5,6 @@ into JALA but have not been:
 
 ###Front-end:
 
-  - Fix bug when Toggling Hidden items and then checking additional
-    ones.
-
-  - Add a favicon
-
   - Fine tune css animations
 
 ###Back-end:
