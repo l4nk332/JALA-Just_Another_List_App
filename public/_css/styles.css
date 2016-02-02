@@ -35,6 +35,10 @@ h1 {
   outline: 0;
 }
 
+.button:active {
+  background-color: rgba(255, 190, 115, 1);
+}
+
 #removeButton {
   margin-right: 35px;
 }
@@ -134,6 +138,22 @@ h1 {
   margin: 0px 20px;
   font-size: 1.3em;
   padding: 4px 6px;
+}
+
+.downloadLink {
+  color: black;
+}
+
+.disabled {
+  cursor: not-allowed;
+  border: 2px solid rgba(255, 190, 115, 0.3);
+  background-color: rgba(255, 190, 115, 0.4);
+}
+
+.disabled:hover {
+  cursor: not-allowed;
+  border: 2px solid rgba(255, 190, 115, 0.3);
+  background-color: rgba(255, 190, 115, 0.4);
 }
 
 /* CSS Animation Section */

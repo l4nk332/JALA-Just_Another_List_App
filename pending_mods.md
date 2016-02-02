@@ -8,10 +8,6 @@ into JALA but have not been:
   - Fix bug when Toggling Hidden items and then checking additional
     ones.
 
-  - Add color-changing feedback when user clicks on a
-    button, also disabling the button for a period to prevent
-    multiple post request in a row if needed.
-
 ###Back-end:
 
   - Email implementation will most likely utilize the [nodemailer](https://www.npmjs.com/package/nodemailer)

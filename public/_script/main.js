@@ -56,6 +56,7 @@ $(document).ready(function() {
     });
     // Disable the export button
     $(".downloadLink").removeAttr('href');
+    $("#exportButton").addClass("disabled");
   });
 
   // All checked items will be removed when 'remove button' is clicked.
@@ -74,6 +75,7 @@ $(document).ready(function() {
     });
     // Disable the export button
     $(".downloadLink").removeAttr('href');
+    $("#exportButton").addClass("disabled");
   });
 
   // Create a way to add list items
@@ -102,6 +104,7 @@ $(document).ready(function() {
       }
       // Disable the export button
       $(".downloadLink").removeAttr('href');
+      $("#exportButton").addClass("disabled");
     });
     // If the api has less than 8 terms fill in (append)
     // enough empty items to fill list.
@@ -127,9 +130,18 @@ $(document).ready(function() {
       // Replace spaces in list title so that it is not
       // in file name.
       jsonTitle = jsonTitle.replace(/\s/g, "_");
+      // Disable button for a short period so that
+      // multiple post requests aren't accidentally
+      // made
+      $("#saveButton").addClass("disabled");
       // Add href with value when save clicked
       // Change the Export button to link to the correct file
       $(".downloadLink").attr("href", "./lists/" + jsonTitle + ".txt");
+      $("#exportButton").removeClass("disabled");
+      // Enable 'save' button
+      setTimeout(function() {
+        $("#saveButton").removeClass("disabled");
+      }, 1500);
     });
 
   });
@@ -139,6 +151,7 @@ $(document).ready(function() {
   $("body").on("change", $(".list-header").children("input"), function() {
     // Disable the export button
     $(".downloadLink").removeAttr('href');
+    $("#exportButton").addClass("disabled");
   });
 
 
@@ -146,6 +159,7 @@ $(document).ready(function() {
   $("body").on("change", $("li").children(".text"),function() {
     // Disable the export button
     $(".downloadLink").removeAttr('href');
+    $("#exportButton").addClass("disabled");
   });
 
 
