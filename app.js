@@ -1,5 +1,6 @@
 // Custom module for building list as a .txt file
 var api2File = require("./lib/api_2_txt");
+var fs = require("fs");
 var express = require("express");
 // CORS -> Cross Origin Resource Sharing
 // This module allows the api to be accessed by other urls
@@ -59,26 +60,19 @@ app.post("/jala-api", function(req, res) {
   });
   // Respond with updated api
   res.json(testItems);
+  // Run the api2File module to create a local copy
+  // of the list in txt template
+  var fileName = api2File(testItems);
+  console.log("The File Name is: " + fileName);
 });
 
 // Listens for a DELETE req provided w/ given term
 app.delete("/jala-api/:term", function(req, res) {
   testItems = testItems.filter(function(item) {
-    return item.listText.toLowerCase() !== "'" + req.params.term.toLowerCase() + "'";
+    return item.listText !== "'" + req.params.term + "'";
   });
   res.json(testItems);
 });
-
-
-// Listen for a get request on jala-download route
-// that will update the jala-api and create a saved
-// version of the list as a file in the system.
-app.get("/jala-download", function(req, res) {
-  // Run the api2File module to create a local copy
-  // of the list in txt template
-  api2File(testItems);
-});
-
 
 
 

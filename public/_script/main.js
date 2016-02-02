@@ -54,6 +54,8 @@ $(document).ready(function() {
         url: '/jala-api/' + $(this).siblings(".text").val(),
         type: 'DELETE'
     });
+    // Disable the export button
+    $(".downloadLink").removeAttr('href');
   });
 
   // All checked items will be removed when 'remove button' is clicked.
@@ -70,6 +72,8 @@ $(document).ready(function() {
 
       }
     });
+    // Disable the export button
+    $(".downloadLink").removeAttr('href');
   });
 
   // Create a way to add list items
@@ -96,6 +100,8 @@ $(document).ready(function() {
       } else if (term.listTitle) {
         $(".list-header").children("input").val(term.listTitle);
       }
+      // Disable the export button
+      $(".downloadLink").removeAttr('href');
     });
     // If the api has less than 8 terms fill in (append)
     // enough empty items to fill list.
@@ -117,29 +123,29 @@ $(document).ready(function() {
     $("ul").children("li").each(function () {
       jsonArr.push({listText: $(this).children(".text").val()});
     });
-    $.post('/jala-api', {listTitle: jsonTitle, listArr: JSON.stringify(jsonArr)});
+    $.post('/jala-api', {listTitle: jsonTitle, listArr: JSON.stringify(jsonArr)}, function () {
+      // Replace spaces in list title so that it is not
+      // in file name.
+      jsonTitle = jsonTitle.replace(/\s/g, "_");
+      // Add href with value when save clicked
+      // Change the Export button to link to the correct file
+      $(".downloadLink").attr("href", "./lists/" + jsonTitle + ".txt");
+    });
 
   });
 
 
+  // When listTitle is changed disable the Export button
+  $("body").on("change", $(".list-header").children("input"), function() {
+    // Disable the export button
+    $(".downloadLink").removeAttr('href');
+  });
 
-  // Make a GET request to the jala-save route that will
-  // allow for .txt version of the file to be downloaded.
-  $("body").on("click", "#exportButton", function() {
-    // Make a POST request to update the api-data
-    var jsonArr = [];
-    var jsonTitle = $(".list-header").children("input").val();
-    //console.log(jsonTitle);
-    $("ul").children("li").each(function () {
-      jsonArr.push({listText: $(this).children(".text").val()});
-    });
-    $.post('/jala-api', {listTitle: jsonTitle, listArr: JSON.stringify(jsonArr)});
-    // Make get request to create local version of .txt file
-    // and download
-    $.get("/jala-download", function(file) {
-      //Do something with file
-    });
 
+  // When list-items are changed disable the Export button
+  $("body").on("change", $("li").children(".text"),function() {
+    // Disable the export button
+    $(".downloadLink").removeAttr('href');
   });
 
 
