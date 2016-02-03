@@ -1,5 +1,6 @@
 // Custom module for building list as a .txt file
 var api2File = require("./lib/api_2_txt");
+var reqLogger = require("./lib/reqLogger");
 var fs = require("fs");
 var express = require("express");
 // CORS -> Cross Origin Resource Sharing
@@ -23,7 +24,10 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(function(req, res, next) {
 
-  console.log(req.method + " request for " + req.url + " - " + JSON.stringify(req.body));
+  //console.log(req.method + " request for " + req.url + " - " + JSON.stringify(req.body));
+  // Provide custom module reqLogger with decorated request object
+  // to create log files accordingly
+  reqLogger(req);
   next();
 
 });
