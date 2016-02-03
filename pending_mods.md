@@ -5,6 +5,11 @@ into JALA but have not been:
 
 ###Front-end:
 
+  - Add more width to the list (for Windows users) so that
+    on hover, the 'X' won't move down.
+
+  - Allow the 'Enter' key to tab through list items.
+
   - Fine tune css animations
 
   - Update the README.md to have clearer install instructions
