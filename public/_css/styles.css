@@ -10,7 +10,8 @@ html {
 body {
   width: 100%;
   background-color: rgb(51, 142, 172);
-  position: fixed;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 h1 {
@@ -154,6 +155,37 @@ h1 {
   font-size: 1.3em;
   padding: 4px 6px;
 }
+
+/* Below is the styles for the email pop-up form. */
+
+.email-form {
+  z-index: 999;
+  width: 400px;
+  height: 150px;
+  margin: 30px auto;
+  padding: 10px;
+  border-radius: 0.7em;
+  background-color: rgba(36, 89, 181, 0.5);
+}
+
+.email-form input {
+  z-index: 999;
+  display: block;
+  margin: 30px auto 10px;
+  padding: 5px;
+  width: 280px;
+  font-size: 1.3em;
+  border-radius: 0.2em;
+}
+
+
+#send-email {
+  z-index: 999;
+  margin: auto;
+  display: block;
+  font-size: 1.5em;
+}
+
 
 .downloadLink {
   color: black;

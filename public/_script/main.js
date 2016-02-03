@@ -68,6 +68,8 @@ $(document).ready(function() {
     // Disable the export button
     $(".downloadLink").removeAttr('href');
     $("#exportButton").addClass("disabled");
+    $("#emailButton").addClass("disabled");
+    $(".email-form").addClass("hiddenToggle");
   });
 
   // All checked items will be removed when 'remove button' is clicked.
@@ -87,6 +89,8 @@ $(document).ready(function() {
     // Disable the export button
     $(".downloadLink").removeAttr('href');
     $("#exportButton").addClass("disabled");
+    $("#emailButton").addClass("disabled");
+    $(".email-form").addClass("hiddenToggle");
   });
 
   // Create a way to add list items
@@ -150,6 +154,8 @@ $(document).ready(function() {
       // Change the Export button to link to the correct file
       $(".downloadLink").attr("href", "./lists/" + jsonTitle + ".txt");
       $("#exportButton").removeClass("disabled");
+      $("#emailButton").removeClass("disabled");
+      $(".email-form").addClass("hiddenToggle");
       // Enable 'save' button
       setTimeout(function() {
         $("#saveButton").removeClass("disabled");
@@ -165,6 +171,8 @@ $(document).ready(function() {
     // Disable the export button
     $(".downloadLink").removeAttr('href');
     $("#exportButton").addClass("disabled");
+    $("#emailButton").addClass("disabled");
+    $(".email-form").addClass("hiddenToggle");
   });
 
 
@@ -173,6 +181,8 @@ $(document).ready(function() {
     // Disable the export button
     $(".downloadLink").removeAttr('href');
     $("#exportButton").addClass("disabled");
+    $("#emailButton").addClass("disabled");
+    $(".email-form").addClass("hiddenToggle");
   });
 
 
@@ -185,5 +195,21 @@ $(document).ready(function() {
     }
   });
 
+
+  // When 'Send This List' is clicked toggleHidden off so that
+  // email form pops up.
+  $("body").on("click", "#emailButton", function() {
+    // If email button is not disabled
+    if (!$(this).hasClass("disabled")) {
+      $("#emailButton").addClass("disabled");
+      $(".email-form").removeClass("hiddenToggle");
+    }
+  });
+
+  // When 'Send' is clicked hide the email form
+  $("body").on("click", "#send-email", function() {
+      $("#emailButton").removeClass("disabled");
+      $(".email-form").addClass("hiddenToggle");
+  });
 
 });
