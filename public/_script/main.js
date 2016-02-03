@@ -92,7 +92,7 @@ $(document).ready(function() {
   // Create a way to add list items
   // appending them to the end using templating
   $("body").on("click", "#addItemButton", function() {
-    $("ul").append("<li class='list-item'><input type='checkbox' class='check strikeToggle' disabled><input class='text' maxlength='30'><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
+    $("ul").append("<li class='list-item'><input type='checkbox' class='check strikeToggle' disabled tabindex='-1'><input class='text' maxlength='30' tabindex='0'><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
   });
 
 
@@ -109,7 +109,7 @@ $(document).ready(function() {
     // For each term in jala-api append to list
     terms.forEach(function(term) {
       if (term.listText) {
-        $("ul").append("<li class='list-item'><input type='checkbox' class='check'><input class='text' maxlength='30' value=" + term.listText + "><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
+        $("ul").append("<li class='list-item'><input type='checkbox' class='check' tabindex='-1'><input class='text' maxlength='30' value=" + term.listText + " tabindex='0'><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
       } else if (term.listTitle) {
         $(".list-header").children("input").val(term.listTitle);
       }
@@ -121,7 +121,7 @@ $(document).ready(function() {
     // enough empty items to fill list.
     if (terms.length < 8) {
       for (var i = 0; i < 8 - terms.length; i++){
-        $("ul").append("<li class='list-item'><input type='checkbox' class='check strikeToggle' disabled><input class='text' maxlength='30'><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
+        $("ul").append("<li class='list-item'><input type='checkbox' class='check strikeToggle' disabled tabindex='-1'><input class='text' maxlength='30' tabindex='0'><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
       }
     }
   });

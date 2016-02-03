@@ -19,10 +19,10 @@
   </head>
   <body>
     <div class="list-header">
-        <input value="My List" maxlength="19">
-      <button type="button" class="button" id="removeButton">Remove Checked</button>
-      <button type="button" class="button" id="hiddenButton">Toggle Hidden</button>
-      <button type="button" class="button" id="addItemButton">+</button>
+        <input value="My List" maxlength="19" tabindex="0">
+      <button type="button" class="button" id="removeButton" tabindex="-1">Remove Checked</button>
+      <button type="button" class="button" id="hiddenButton" tabindex="-1">Toggle Hidden</button>
+      <button type="button" class="button" id="addItemButton" tabindex="-1">+</button>
     </div>
     <div class="clouds cloudA"></div>
     <div class="clouds cloudB"></div>
@@ -33,9 +33,9 @@
           </ul>
       </form>
       <div id="list-footer">
-        <button type="button" class="button" id="saveButton">Save</button>
-        <button type="button" class="button" id="emailButton">Send This List</button>
-        <a href="" class="downloadLink" download><button type="button" class="button" id="exportButton">Export</button></a>
+        <button type="button" class="button" id="saveButton" tabindex="-1">Save</button>
+        <button type="button" class="button" id="emailButton" tabindex="-1">Send This List</button>
+        <a href="" class="downloadLink" download tabindex="-1"><button type="button" class="button" id="exportButton" tabindex="-1">Export</button></a>
       </div>
   <!--Load jquery-->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
