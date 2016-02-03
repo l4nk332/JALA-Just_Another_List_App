@@ -86,9 +86,9 @@ h1 {
 
 .list-item {
   cursor: pointer;
-  width: 85%;
+  width: 90%;
   display: block;
-  margin: 5px;
+  margin: 5px 5px 5px 2px;
   border-bottom: 1px solid black;
   padding: 5px;
   list-style: none;
