@@ -176,5 +176,14 @@ $(document).ready(function() {
   });
 
 
+  // When enter key is pressed 'Save' the list
+  $(document).keypress(function(e) {
+    if(e.which == 13) {
+        event.preventDefault();
+        // Add new list-item
+        $("ul").append("<li class='list-item'><input type='checkbox' class='check strikeToggle' disabled tabindex='-1'><input class='text' maxlength='30' tabindex='0'><span class='hiddenToggle deleteIcon'>&#x2715;</span></li>");
+    }
+  });
+
 
 });
