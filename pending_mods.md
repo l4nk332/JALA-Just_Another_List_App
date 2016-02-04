@@ -14,7 +14,7 @@ into JALA but have not been:
     and description of dependencies.
 
   - Consider making checkboxes larger (mobile-friendly).
-  
+
 
 ###Back-end:
 
