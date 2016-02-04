@@ -197,7 +197,7 @@ $(document).ready(function() {
     // If email button is not disabled
     if (!$(this).hasClass("disabled")) {
       $("#emailButton").addClass("disabled");
-      $(".email-form").show("drop", 1000);
+      $(".email-form").show("drop", { direction: "up" },1000);
     }
   });
 
@@ -215,7 +215,7 @@ $(document).ready(function() {
       $.post('/jala-email', {email: $(".email-input").val()}, function() {
         // Reset application
         $("#emailButton").removeClass("disabled");
-        $(".email-form").hide("drop", 1000);
+        $(".email-form").hide("drop", { direction: "up" }, 1000);
       });
     }
   });
