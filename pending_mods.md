@@ -11,12 +11,16 @@ into JALA but have not been:
     and description of dependencies.
 
   - Consider making checkboxes larger (mobile-friendly).
-  
+
 
 ###Back-end:
 
-  - Email implementation will most likely utilize the [nodemailer](https://www.npmjs.com/package/nodemailer)
-    module, allowing the user to email the list as plain-text.
+  - Utilize the fs module to assign the api list data to
+    a variable that would then be insert as the body of
+    email submission.
+
+  - Update jala_log module to keep track of email submission
+    information.
 
   - Make a api_HTML module that will allow the user to alternatively
     email HTML rather than plain-text.

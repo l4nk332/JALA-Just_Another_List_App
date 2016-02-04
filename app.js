@@ -85,21 +85,22 @@ app.delete("/jala-api/:term", function(req, res) {
 
 // Handle email request
 app.post('/jala-email', function(req, res) {
-  console.log(req.body.email);
-  res.end();
-  // var mailOptions = {
-  //     from: "Admin",
-  //     to: "ianwillyjabour@icloud.com",
-  //     subject: "Testing",
-  //     text: "Email from application"
-  // };
-  //
-  // transporter.sendMail(mailOptions, function(err, info) {
-  //     if (err) {
-  //         return console.log(err);
-  //     }
-  //     console.log("Message sent: " + info.response);
-  // });
+  // console.log("Email: " + req.body.email);
+  // console.log("Subject: " + req.body.title);
+  var mailOptions = {
+      from: "JALA",
+      to: req.body.email,
+      subject: req.body.title,
+      text: "Test Email from Jala!"
+  };
+
+  transporter.sendMail(mailOptions, function(err, info) {
+      if (err) {
+          return console.log(err);
+      }
+      console.log("Message sent to: " + req.body.email + "\n" + "Subject: " + req.body.title + "\n" + info.response);
+      res.end();
+  });
 
 });
 

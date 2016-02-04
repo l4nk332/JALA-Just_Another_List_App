@@ -212,7 +212,7 @@ $(document).ready(function() {
   $("body").on("click", "#send-email", function() {
     if (!$(this).hasClass("disabled")) {
       // Send a request to send an email
-      $.post('/jala-email', {email: $(".email-input").val()}, function() {
+      $.post('/jala-email', {email: $(".email-input").val(), title: $("#listTitle").val()}, function() {
         // Reset application
         $("#emailButton").removeClass("disabled");
         $(".email-form").hide("drop", { direction: "up" }, 1000);
