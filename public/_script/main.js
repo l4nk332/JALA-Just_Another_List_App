@@ -1,8 +1,8 @@
 $(document).ready(function() {
   // This is a boolean that keeps track of the hiddenToggle
-  // being either on or off.
+  // being either on or off
   var hidden = false;
-    // If text field is empty then checkbox is disabled and
+  // If text field is empty then checkbox is disabled and
   // blurred
   $("body").on("blur", ".text", function() {
     if(!this.value) {
@@ -206,10 +206,14 @@ $(document).ready(function() {
     }
   });
 
-  // When 'Send' is clicked hide the email form
+  // When 'Send' is clicked make a req and hide the email form
   $("body").on("click", "#send-email", function() {
-      $("#emailButton").removeClass("disabled");
-      $(".email-form").addClass("hiddenToggle");
+      // Send a request to send an email
+      $.post('/jala-email', {email: $(".email-input").val()}, function() {
+        // Reset application
+        $("#emailButton").removeClass("disabled");
+        $(".email-form").addClass("hiddenToggle");
+      });
   });
 
 });

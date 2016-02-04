@@ -9,6 +9,10 @@ var express = require("express");
 var cors = require("cors");
 var bodyParser = require("body-parser");
 var app = express();
+// nodemailer allows the creation of an smtp transporter
+// object and will be used to email the list.
+var nodemailer = require("nodemailer");
+var transporter = nodemailer.createTransport('smtps://justanotherlistapp%40gmail.com:microphonecheck12@smtp.gmail.com');
 
 
 var testItems = [
@@ -78,6 +82,26 @@ app.delete("/jala-api/:term", function(req, res) {
   res.json(testItems);
 });
 
+
+// Handle email request
+app.post('/jala-email', function(req, res) {
+  console.log(req.body.email);
+  res.end();
+  // var mailOptions = {
+  //     from: "Admin",
+  //     to: "ianwillyjabour@icloud.com",
+  //     subject: "Testing",
+  //     text: "Email from application"
+  // };
+  //
+  // transporter.sendMail(mailOptions, function(err, info) {
+  //     if (err) {
+  //         return console.log(err);
+  //     }
+  //     console.log("Message sent: " + info.response);
+  // });
+
+});
 
 
 

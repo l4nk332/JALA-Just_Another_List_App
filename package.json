@@ -26,6 +26,7 @@
     "body-parser": "^1.14.2",
     "cors": "^2.7.1",
     "express": "^4.13.4",
-    "ipware": "0.0.7"
+    "ipware": "0.0.7",
+    "nodemailer": "^2.1.0"
   }
 }
