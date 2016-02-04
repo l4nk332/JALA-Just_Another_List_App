@@ -68,8 +68,7 @@ $(document).ready(function() {
     // Disable the export button
     $(".downloadLink").removeAttr('href');
     $("#exportButton").addClass("disabled");
-    $("#emailButton").addClass("disabled");
-    $(".email-form").addClass("hiddenToggle");
+    $("#send-email").addClass("disabled");
   });
 
   // All checked items will be removed when 'remove button' is clicked.
@@ -89,8 +88,7 @@ $(document).ready(function() {
     // Disable the export button
     $(".downloadLink").removeAttr('href');
     $("#exportButton").addClass("disabled");
-    $("#emailButton").addClass("disabled");
-    $(".email-form").addClass("hiddenToggle");
+    $("#send-email").addClass("disabled");
   });
 
   // Create a way to add list items
@@ -154,8 +152,7 @@ $(document).ready(function() {
       // Change the Export button to link to the correct file
       $(".downloadLink").attr("href", "./lists/" + jsonTitle + ".txt");
       $("#exportButton").removeClass("disabled");
-      $("#emailButton").removeClass("disabled");
-      $(".email-form").addClass("hiddenToggle");
+      $("#send-email").removeClass("disabled");
       // Enable 'save' button
       setTimeout(function() {
         $("#saveButton").removeClass("disabled");
@@ -171,8 +168,7 @@ $(document).ready(function() {
     // Disable the export button
     $(".downloadLink").removeAttr('href');
     $("#exportButton").addClass("disabled");
-    $("#emailButton").addClass("disabled");
-    $(".email-form").addClass("hiddenToggle");
+    $("#send-email").addClass("disabled");
   });
 
 
@@ -181,12 +177,11 @@ $(document).ready(function() {
     // Disable the export button
     $(".downloadLink").removeAttr('href');
     $("#exportButton").addClass("disabled");
-    $("#emailButton").addClass("disabled");
-    $(".email-form").addClass("hiddenToggle");
+    $("#send-email").addClass("disabled");
   });
 
 
-  // When enter key is pressed 'Save' the list
+  // When enter key is pressed add to the list
   $(document).keypress(function(e) {
     if(e.which == 13) {
         event.preventDefault();
@@ -202,18 +197,26 @@ $(document).ready(function() {
     // If email button is not disabled
     if (!$(this).hasClass("disabled")) {
       $("#emailButton").addClass("disabled");
-      $(".email-form").removeClass("hiddenToggle");
+      $(".email-form").show("drop", 1000);
     }
+  });
+
+  // When email input box value is changed. Disable 'send'
+  // until 'save' is clicked again.
+  $("body").on("input", $(".email-input"),function() {
+    // Disable the 'send' button
+    $("#send-email").addClass("disabled");
   });
 
   // When 'Send' is clicked make a req and hide the email form
   $("body").on("click", "#send-email", function() {
+    if (!$(this).hasClass("disabled")) {
       // Send a request to send an email
       $.post('/jala-email', {email: $(".email-input").val()}, function() {
         // Reset application
         $("#emailButton").removeClass("disabled");
-        $(".email-form").addClass("hiddenToggle");
+        $(".email-form").hide("drop", 1000);
       });
+    }
   });
-
 });

@@ -5,16 +5,13 @@ into JALA but have not been:
 
 ###Front-end:
 
-  - Set-up client side JS to make proper post request upon 'send'
-    email being clicked.
-
   - Fine tune css animations
 
   - Update the README.md to have clearer install instructions
     and description of dependencies.
 
   - Consider making checkboxes larger (mobile-friendly).
-
+  
 
 ###Back-end:
 
