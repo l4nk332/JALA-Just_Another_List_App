@@ -4,8 +4,8 @@ Just as the name suggests, JALA is simply a to-do list
 application meant to run in a local home or work environment
 via [Node.js](https://nodejs.org/en/) and its modules.
 
-![Screenshot of JALA]
-(https://raw.githubusercontent.com/l4nk332/JALA-Just_Another_List_App/master/public/_assets/img/jala_screenshot.png)
+![JALA Functionality Example]
+(https://raw.githubusercontent.com/l4nk332/JALA-Just_Another_List_App/master/public/_assets/img/jala_example.gif)
 
 The main objective of this application is to provide a
 simple and easy to use interface in which a group of

@@ -5,7 +5,10 @@ into JALA but have not been:
 
 ###Front-end:
 
-  - Fine tune css animations
+  - Fix CSS Animation so that it is works with larger width
+    screen sizes.
+
+  - Add more to the CSS Animation
 
   - Update the README.md to have clearer install instructions
     and description of dependencies.
