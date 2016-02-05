@@ -45,6 +45,10 @@ app.get("/jala-api", function(req, res) {
   res.json(testItems);
 });
 
+// This gives the fileName variable scope
+// for both the saving of the api to a file
+// and email that file's contents.
+var fileName;
 // Listens for a POST req provided and replaces api
 // with updated list.
 app.post("/jala-api", function(req, res) {
@@ -70,7 +74,7 @@ app.post("/jala-api", function(req, res) {
   res.json(testItems);
   // Run the api2File module to create a local copy
   // of the list in txt template
-  var fileName = api2File(testItems);
+  fileName = api2File(testItems);
   console.log("The File Name is: " + fileName);
 });
 
@@ -87,19 +91,24 @@ app.delete("/jala-api/:term", function(req, res) {
 app.post('/jala-email', function(req, res) {
   // console.log("Email: " + req.body.email);
   // console.log("Subject: " + req.body.title);
-  var mailOptions = {
-      from: "JALA",
-      to: req.body.email,
-      subject: req.body.title,
-      text: "Test Email from Jala!"
-  };
+  // Use fs module to read saved api list file and use its
+  // contents as the email body.
+  //console.log("About to read: " + fileName);
+  fs.readFile("./public/lists/" + fileName, function(err, data) {
+    var mailOptions = {
+        from: "JALA",
+        to: req.body.email,
+        subject: req.body.title,
+        text: data
+    };
 
-  transporter.sendMail(mailOptions, function(err, info) {
-      if (err) {
-          return console.log(err);
-      }
-      console.log("Message sent to: " + req.body.email + "\n" + "Subject: " + req.body.title + "\n" + info.response);
-      res.end();
+    transporter.sendMail(mailOptions, function(err, info) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Message sent to: " + req.body.email + "\n" + "Subject: " + req.body.title + "\n" + info.response);
+        res.end();
+    });
   });
 
 });

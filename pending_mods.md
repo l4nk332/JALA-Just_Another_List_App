@@ -15,10 +15,6 @@ into JALA but have not been:
 
 ###Back-end:
 
-  - Utilize the fs module to assign the api list data to
-    a variable that would then be insert as the body of
-    email submission.
-
   - Update jala_log module to keep track of email submission
     information.
 
