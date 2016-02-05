@@ -242,20 +242,20 @@ h1 {
 
 @-webkit-keyframes drift {
   from{transform: translateX(-300px);}
-  to{transform: translateX(1400px);}
+  to{transform: translateX(2000px);}
 }
 
 @-moz-keyframes drift {
   from{transform: translateX(-300px);}
-  to{transform: translateX(1400px);}
+  to{transform: translateX(2000px);}
 }
 
 @-o-keyframes drift {
   from{transform: translateX(-300px);}
-  to{transform: translateX(1400px);}
+  to{transform: translateX(2000px);}
 }
 
 @keyframes drift {
   from{transform: translateX(-300px);}
-  to{transform: translateX(1400px);}
+  to{transform: translateX(2000px);}
 }
