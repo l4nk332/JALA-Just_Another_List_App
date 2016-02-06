@@ -5,15 +5,16 @@ into JALA but have not been:
 
 ###Front-end:
 
-  - Fix CSS Animation so that it is works with larger width
-    screen sizes.
-
   - Add more to the CSS Animation
 
   - Update the README.md to have clearer install instructions
     and description of dependencies.
 
   - Consider making checkboxes larger (mobile-friendly).
+
+  - Allow user to check all list items between two checked items by
+    selecting the first item and the Shift-clicking to select the
+    next item with all others between.
 
 
 ###Back-end:
