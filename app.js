@@ -1,3 +1,5 @@
+// Custom module for building list as .html
+var api2Html = require("./lib/api_2_html");
 // Custom module for building list as a .txt file
 var api2File = require("./lib/api_2_txt");
 var reqLogger = require("./lib/reqLogger");
@@ -76,6 +78,9 @@ app.post("/jala-api", function(req, res) {
   // of the list in txt template
   fileName = api2File(testItems);
   console.log("The File Name is: " + fileName);
+  // TESTING PURPOSE BELOW
+  //console.log("About to write HTML file...");
+  //api2Html(testItems);
 });
 
 // Listens for a DELETE req provided w/ given term

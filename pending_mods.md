@@ -5,7 +5,9 @@ into JALA but have not been:
 
 ###Front-end:
 
-  - Add more to the CSS Animation
+  - Add a rotating sun css animation to application.
+
+  - Add starry night sky animation to application.
 
   - Update the README.md to have clearer install instructions
     and description of dependencies.
@@ -19,5 +21,9 @@ into JALA but have not been:
 
 ###Back-end:
 
-  - Make a api_HTML module that will allow the user to alternatively
-    email HTML rather than plain-text.
+  - Add styles to the api_HTML module that saves the api as an html
+    file as well as a plain-text file.
+
+  - Configure the application so that if it is night time the
+    new starry animation is served as a backdrop, otherwise have
+    it be the sunny cloud backdrop.
