@@ -61,7 +61,7 @@ project and run:
 `$ node app`
 
 **Note:** *Write privileges might be necessary for JALA to properly run and
-	  *write files on the system. In this case prepend sudo:* `$ sudo node app`
+	  write files on the system. In this case prepend sudo:* `$ sudo node app`
 
 Once up and running open your Web Browser and navigate to the IP address 
 of the computer (*server*) running the application followed by the a colon and the port 
@@ -70,9 +70,9 @@ number (*3000 by default*):
 `192.168.1.1:3000`
 
 #####Specifying Port Number
-You can specify the port number JALA will listen on by appending the '-p'
+You can specify the port number JALA will listen on by appending the *-p*
 flag followed by a number. Here is an example of JALA running on port 345:
 
 `$ node app -p 345`
 
-If no port number is specified JALA will run on port 3000 by default.
+If no port number is specified JALA will run on **port 3000** by default.
