@@ -114,9 +114,19 @@ app.post('/jala-email', function(req, res) {
 });
 
 
+// If second argument is -p flag and the third argument is
+// a valid number, the application will listen on the
+// specified number. Otherwise run on port 3000.
+var portNumber;
 
-app.listen(3000);
+if (process.argv[2] === "-p" && /\d+/g.test(process.argv[3])) {
+  portNumber = Number(process.argv[3]);
+} else {
+  portNumber = 3000;
+}
 
-console.log("Express app running on port 3000");
+app.listen(portNumber);
+
+console.log("Express app running on port " + portNumber);
 
 module.exports = app;
