@@ -106,7 +106,7 @@ app.post('/jala-email', function(req, res) {
         if (err) {
             return console.log(err);
         }
-        console.log("Message sent to: " + req.body.email + "\n" + "Subject: " + req.body.title + "\n" + info.response);
+        //console.log("Message sent to: " + req.body.email + "\n" + "Subject: " + req.body.title + "\n" + info.response);
         res.end();
     });
   });

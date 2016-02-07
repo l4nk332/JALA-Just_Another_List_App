@@ -19,8 +19,5 @@ into JALA but have not been:
 
 ###Back-end:
 
-  - Update jala_log module to keep track of email submission
-    information.
-
   - Make a api_HTML module that will allow the user to alternatively
     email HTML rather than plain-text.
