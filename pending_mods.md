@@ -26,4 +26,4 @@ into JALA but have not been:
 
   - Configure the application so that if it is night time the
     new starry animation is served as a backdrop, otherwise have
-    it be the sunny cloud backdrop.
+    it be the sunny cloud backdrop.git
