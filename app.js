@@ -47,10 +47,11 @@ app.get("/jala-api", function(req, res) {
   res.json(testItems);
 });
 
-// This gives the fileName variable scope
+// This gives the txtName and html vars scope
 // for both the saving of the api to a file
-// and email that file's contents.
-var fileName;
+// and email the file contents.
+var txtName;
+var htmlName;
 // Listens for a POST req provided and replaces api
 // with updated list.
 app.post("/jala-api", function(req, res) {
@@ -76,11 +77,12 @@ app.post("/jala-api", function(req, res) {
   res.json(testItems);
   // Run the api2File module to create a local copy
   // of the list in txt template
-  fileName = api2File(testItems);
-  console.log("The File Name is: " + fileName);
-  // TESTING PURPOSE BELOW
-  //console.log("About to write HTML file...");
-  //api2Html(testItems);
+  txtName = api2File(testItems);
+  console.log("Creating: " + txtName);
+  // Run the api2Html module to create a local copy
+  // of the list in html template
+  htmlName = api2Html(testItems);
+  console.log("Creating: " + htmlName);
 });
 
 // Listens for a DELETE req provided w/ given term
@@ -94,24 +96,30 @@ app.delete("/jala-api/:term", function(req, res) {
 
 // Handle email request
 app.post('/jala-email', function(req, res) {
+  var emailFile = txtName;
+  if (req.body.type === "html") {
+    // Re-assign emailed file to html if
+    // specified in request.
+    emailFile = htmlName;
+  }
   // console.log("Email: " + req.body.email);
   // console.log("Subject: " + req.body.title);
   // Use fs module to read saved api list file and use its
   // contents as the email body.
-  //console.log("About to read: " + fileName);
-  fs.readFile("./public/lists/" + fileName, function(err, data) {
+  //console.log("About to read: " + txtName);
+  fs.readFile("./public/lists/" + emailFile, function(err, data) {
     var mailOptions = {
         from: "JALA",
         to: req.body.email,
         subject: req.body.title,
-        text: data
+        html: data
     };
 
     transporter.sendMail(mailOptions, function(err, info) {
         if (err) {
             return console.log(err);
         }
-        //console.log("Message sent to: " + req.body.email + "\n" + "Subject: " + req.body.title + "\n" + info.response);
+        console.log("Message sent to: " + req.body.email + "\n" + "Subject: " + req.body.title + "\n" + info.response);
         res.end();
     });
   });

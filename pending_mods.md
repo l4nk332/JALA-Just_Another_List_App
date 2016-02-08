@@ -9,9 +9,6 @@ into JALA but have not been:
 
   - Add starry night sky animation to application.
 
-  - Update the README.md to have clearer install instructions
-    and description of dependencies.
-
   - Consider making checkboxes larger (mobile-friendly).
 
   - Allow user to check all list items between two checked items by
@@ -20,9 +17,6 @@ into JALA but have not been:
 
 
 ###Back-end:
-
-  - Add styles to the api_HTML module that saves the api as an html
-    file as well as a plain-text file.
 
   - Configure the application so that if it is night time the
     new starry animation is served as a backdrop, otherwise have

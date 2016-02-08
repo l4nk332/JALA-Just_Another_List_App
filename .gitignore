@@ -6,7 +6,6 @@ Thumbs.db
 node_modules/*
 
 #Saved lists
-/public/lists/*.txt
-
+/public/lists/*
 #Log files
 *.log
