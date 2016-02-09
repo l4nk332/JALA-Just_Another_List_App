@@ -5,9 +5,9 @@ into JALA but have not been:
 
 ###Front-end:
 
-  - Fix jQuery drop animation on email form for Firefox.
+  - Attempt to create the cloud animations via html canvas
 
-  - Add color tone changing in early and late daylight hours.
+  - Fix jQuery drop animation on email form for Firefox.
 
   - Add starry night sky animation to application.
 

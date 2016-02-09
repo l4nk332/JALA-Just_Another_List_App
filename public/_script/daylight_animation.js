@@ -102,19 +102,97 @@ console.log(now.getHours());
     "18": (screen.width * 0/11)
   };
 
+  // Position sun based on hour of daylight
   var x = hourMap[now.getHours().toString()], y = 30;
-  //var x = hourMap["18"], y = 30; // For Testing Purposes only
-  sunAnimation();
+  //var x = hourMap["6"], y = 30; // For Testing Purposes only
+  // Only draw sun animation between 7am and 6:59pm
+  if (now.getHours() > 6 && now.getHours() < 19) {
+    sunAnimation();
+  }
 
-// If first or last hours of daylight reddish tint
-if (now.getHours() === 7 || now.getHours() === 18) {
-  // Change body (sky) tint
-  document.body.style.backgroundColor = "rgb(245, 134, 150)";
-  // Change sun tint
+// At 6am (before sun in frame)
+if (now.getHours() === 6) {
+  $("body").css({
+    "background": "linear-gradient(rgba(228, 152, 156, 1), rgb(51, 142, 172))" /* Standard syntax */
+  });
+}
+// At 7am
+else if (now.getHours() === 7) {
+  $("body").css({
+    "background": "linear-gradient(rgba(228, 152, 156, 0.7), rgb(51, 142, 172))" /* Standard syntax */
+  });
+}
+// At 8am
+else if (now.getHours() === 8) {
+  $("body").css({
+    "background": "linear-gradient(rgba(228, 152, 156, 0.5), rgb(51, 142, 172))" /* Standard syntax */
+  });
+}
+// At 4pm
+else if (now.getHours() === 16) {
+  $("body").css({
+    "background": "linear-gradient(rgba(232, 100, 67, 0.5), rgba(43, 121, 167, 0.5))" /* Standard syntax */
+  });
+}
+// At 5pm
+else if (now.getHours() === 17) {
+  $("body").css({
+    "background": "linear-gradient(rgba(232, 100, 67, 0.7), rgba(43, 121, 167, 0.7))" /* Standard syntax */
+  });
+}
+// At 6pm (sun is out of frame)
+else if (now.getHours() === 18) {
+  $("body").css({
+    "background": "linear-gradient(rgba(232, 100, 67, 1), rgba(43, 121, 167, 1))" /* Standard syntax */
+  });
 }
 
-// Else if second to first or last hours slighter reddish tint
 
-// Else if third to first or last hours slightest reddish tint
 
-// Else just normal blue tint
+// FOR TESTING COLOR CHANGES ONLY
+// var counter = 0;
+//
+// var inter = setInterval(function(){
+//   console.log(counter);
+//   // At 6am (before sun in frame)
+//   if (counter === 1) {
+//     $("body").css({
+//       "background": "linear-gradient(rgba(228, 152, 156, 1), rgb(51, 142, 172))" /* Standard syntax */
+//     });
+//   }
+//   // At 7am
+//   else if (counter === 2) {
+//     $("body").css({
+//       "background": "linear-gradient(rgba(228, 152, 156, 0.7), rgb(51, 142, 172))" /* Standard syntax */
+//     });
+//   }
+//   // At 8am
+//   else if (counter === 3) {
+//     $("body").css({
+//       "background": "linear-gradient(rgba(228, 152, 156, 0.5), rgb(51, 142, 172))" /* Standard syntax */
+//     });
+//   }
+//   // At 4pm
+//   else if (counter === 4) {
+//     $("body").css({
+//       "background": "linear-gradient(rgba(232, 100, 67, 0.5), rgba(43, 121, 167, 0.5))" /* Standard syntax */
+//     });
+//   }
+//   // At 5pm
+//   else if (counter === 5) {
+//     $("body").css({
+//       "background": "linear-gradient(rgba(232, 100, 67, 0.7), rgba(43, 121, 167, 0.7))" /* Standard syntax */
+//     });
+//   }
+//   // At 6pm (sun is out of frame)
+//   else if (counter === 6) {
+//     $("body").css({
+//       "background": "linear-gradient(rgba(232, 100, 67, 1), rgba(43, 121, 167, 1))" /* Standard syntax */
+//     });
+//   }
+//   else if (counter > 6) {
+//       counter = -1;
+//       //clearInterval(inter);
+//   }
+//   counter++;
+// }, 3000);

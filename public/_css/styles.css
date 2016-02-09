@@ -2,6 +2,8 @@
 
 html {
   box-sizing: border-box;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -9,6 +11,10 @@ html {
 
 body {
   width: 100%;
+  min-height: 900px;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-color: rgb(51, 142, 172);
   overflow-x: hidden;
   overflow-y: scroll;
