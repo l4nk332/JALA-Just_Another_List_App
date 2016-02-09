@@ -2,7 +2,7 @@ function drawCircle () {
   // Draw the circle and fill it
   ctx.beginPath();
   ctx.arc(x, y, 100, 2*Math.PI, 0);
-  ctx.fillStyle = "rgba(243, 191, 127, 0.7)";
+  ctx.fillStyle = "rgba(247, 206, 0, 0.7)";
   ctx.fill();
 }
 
