@@ -5,7 +5,10 @@ into JALA but have not been:
 
 ###Front-end:
 
-  - Add a rotating sun css animation to application.
+  - Fix jQuery drop animation on email form for Firefox.
+
+  - Add backward compatibility for requestAnimationFrame w/
+    vendor prefixes.
 
   - Add starry night sky animation to application.
 
@@ -20,4 +23,4 @@ into JALA but have not been:
 
   - Configure the application so that if it is night time the
     new starry animation is served as a backdrop, otherwise have
-    it be the sunny cloud backdrop.git
+    it be the sunny cloud backdrop.

@@ -62,8 +62,8 @@ h1 {
   padding: 5px;
   font-size: 35px;
   text-align: center;
-  background-color: rgb(51, 142, 172);
-  border: rgb(51, 142, 172);
+  background-color: rgba(51, 142, 172, 0);
+  border: rgba(51, 142, 172, 0);
 }
 
 .list-header input:focus {
