@@ -38,6 +38,13 @@ function drawSunRays() {
   }
 }
 
+// Assign vendor prefixes to requestAnimationFrame
+var requestAnimationFrame = window.requestAnimationFrame ||
+                            window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame ||
+                            window.oRequestAnimationFrame ||
+                            window.msRequestAnimationFrame;
+
 function sunAnimation() {
   ctx.clearRect(0, 0, screen.width, 500);
   ctx.save();
@@ -52,7 +59,7 @@ function sunAnimation() {
   drawSunRays();
   // Restore canvas to original state
   ctx.restore();
-  window.requestAnimationFrame(sunAnimation);
+  requestAnimationFrame(sunAnimation);
 }
 
 
@@ -95,8 +102,8 @@ console.log(now.getHours());
     "18": (screen.width * 0/11)
   };
 
-  //var x = hourMap[now.getHours().toString()], y = 30;
-  var x = hourMap["18"], y = 30;
+  var x = hourMap[now.getHours().toString()], y = 30;
+  //var x = hourMap["18"], y = 30; // For Testing Purposes only
   sunAnimation();
 
 // If first or last hours of daylight reddish tint

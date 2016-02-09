@@ -7,8 +7,7 @@ into JALA but have not been:
 
   - Fix jQuery drop animation on email form for Firefox.
 
-  - Add backward compatibility for requestAnimationFrame w/
-    vendor prefixes.
+  - Add color tone changing in early and late daylight hours.
 
   - Add starry night sky animation to application.
 
