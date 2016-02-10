@@ -1,4 +1,12 @@
-function drawCircle () {
+// Assign vendor prefixes to requestAnimationFrame
+var requestAnimationFrame = window.requestAnimationFrame ||
+                            window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame ||
+                            window.oRequestAnimationFrame ||
+                            window.msRequestAnimationFrame;
+
+// Define functions for daylight
+function drawSun () {
   // Draw the circle and fill it
   ctx.beginPath();
   ctx.arc(x, y, 100, 2*Math.PI, 0);
@@ -38,17 +46,11 @@ function drawSunRays() {
   }
 }
 
-// Assign vendor prefixes to requestAnimationFrame
-var requestAnimationFrame = window.requestAnimationFrame ||
-                            window.mozRequestAnimationFrame ||
-                            window.webkitRequestAnimationFrame ||
-                            window.oRequestAnimationFrame ||
-                            window.msRequestAnimationFrame;
-
 function sunAnimation() {
+  var x = hourMap[now.getHours().toString()], y = 30;
   ctx.clearRect(0, 0, screen.width, 500);
   ctx.save();
-  drawCircle();
+  drawSun();
   // Translate Canvas to center of circle
   ctx.translate(x, y);
   var time = new Date();
@@ -62,6 +64,61 @@ function sunAnimation() {
   requestAnimationFrame(sunAnimation);
 }
 
+// Define variables and functions for moon animation
+
+// Write a function that make a circle
+function drawCircle(x, y, radius, color) {
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, 2*Math.PI);
+  ctx.fillStyle = color || "white";
+  ctx.fill();
+}
+
+// Write a function that makes a dot
+function drawDot(x, y) {
+  ctx.fillStyle = "white";
+  ctx.fillRect(x,y,1,1); // fill in the pixel at (x,y)
+}
+
+function drawMoonCraters() {
+  // Fill moon with craters
+  drawCircle(-40, -55, 7, "rgba(165, 165, 165, 0.1)");
+  drawCircle(80, 40, 5, "rgba(165, 165, 165, 0.1)");
+  drawCircle(-25, 45, 17, "rgba(165, 165, 165, 0.1)");
+  drawCircle(0, -80, 8, "rgba(165, 165, 165, 0.1)");
+  drawCircle(80, 0, 8, "rgba(165, 165, 165, 0.1)");
+  drawCircle(40, -15, 12, "rgba(165, 165, 165, 0.1)");
+  drawCircle(25, 55, 7, "rgba(165, 165, 165, 0.1)");
+  drawCircle(-65, 5, 12, "rgba(165, 165, 165, 0.1)");
+  drawCircle(40, -65, 15, "rgba(165, 165, 165, 0.1)");
+  drawCircle(-10, -10, 22, "rgba(165, 165, 165, 0.1)");
+}
+
+// Write a function that will draw the moon at
+// given x, y
+function moonAnimation() {
+  var x = hourMap[now.getHours().toString()], y = 100;
+  // Clear canvas
+  ctx.clearRect(0, 0, screen.width, 500);
+  // Save state of canvas
+  ctx.save();
+  // Draw the full-moon shape
+  drawCircle(x, y, 100, "rgb(234, 231, 211)");
+  // Translate canvas to circle center
+  ctx.translate(x, y);
+  var time = new Date();
+  // Rotate canvas at circle center with every
+  // half second moving clockwise
+  ctx.rotate( ((2*Math.PI)/60)*time.getSeconds() + ((2*Math.PI)/60000)*time.getMilliseconds() );
+  // Fill moon with craters
+  drawMoonCraters();
+  // Restore canvas to previous state
+  ctx.restore();
+  requestAnimationFrame(moonAnimation);
+}
+
+
+
 
 
 // When page loads get current hour and if
@@ -69,8 +126,9 @@ function sunAnimation() {
 // below.
 var now = new Date();
 console.log(now.getHours());
-//if (now.getHours() > 6 && now.getHours() < 19) {
 
+// Only draw sun animation between 7am and 6:59pm
+if (now.getHours() > 6 && now.getHours() < 19) {
   // Create a canvas the length of the
   // screen and append it to the body
   var canvas = document.createElement("canvas");
@@ -103,96 +161,132 @@ console.log(now.getHours());
   };
 
   // Position sun based on hour of daylight
-  var x = hourMap[now.getHours().toString()], y = 30;
+  //var x = hourMap[now.getHours().toString()], y = 30;
   //var x = hourMap["6"], y = 30; // For Testing Purposes only
-  // Only draw sun animation between 7am and 6:59pm
-  if (now.getHours() > 6 && now.getHours() < 19) {
     sunAnimation();
+
+  // At 6am (before sun in frame)
+  if (now.getHours() === 6) {
+    $("body").css({
+      "background": "linear-gradient(rgba(228, 152, 156, 1), rgb(51, 142, 172))" /* Standard syntax */
+    });
+  }
+  // At 7am
+  else if (now.getHours() === 7) {
+    $("body").css({
+      "background": "linear-gradient(rgba(228, 152, 156, 0.7), rgb(51, 142, 172))" /* Standard syntax */
+    });
+  }
+  // At 8am
+  else if (now.getHours() === 8) {
+    $("body").css({
+      "background": "linear-gradient(rgba(228, 152, 156, 0.5), rgb(51, 142, 172))" /* Standard syntax */
+    });
+  }
+  // At 4pm
+  else if (now.getHours() === 16) {
+    $("body").css({
+      "background": "linear-gradient(rgba(232, 100, 67, 0.5), rgba(43, 121, 167, 0.5))" /* Standard syntax */
+    });
+  }
+  // At 5pm
+  else if (now.getHours() === 17) {
+    $("body").css({
+      "background": "linear-gradient(rgba(232, 100, 67, 0.7), rgba(43, 121, 167, 0.7))" /* Standard syntax */
+    });
+  }
+  // At 6pm (sun is out of frame)
+  else if (now.getHours() === 18) {
+    $("body").css({
+      "background": "linear-gradient(rgba(232, 100, 67, 1), rgba(43, 121, 167, 1))" /* Standard syntax */
+    });
+  }
+}
+
+
+
+else if (now.getHours() < 6 || now.getHours() > 18) {
+  var hourMap = {
+    "20": (screen.width * 9/9),
+    "21": (screen.width * 8/9),
+    "22": (screen.width * 7/9),
+    "23": (screen.width * 6/9),
+    "0": (screen.width * 5/9),
+    "1": (screen.width * 4/9),
+    "2": (screen.width * 3/9),
+    "3": (screen.width * 2/9),
+    "4": (screen.width * 1/9)
+  };
+
+  // Remove clouds
+  $(".clouds").css({
+    "display": "none"
+  });
+
+  // Change the body background color to night
+  $("body").css({
+    "background": "rgb(30, 30, 30)"
+  });
+
+  $("#listTitle").css({
+    "color": "white",
+    "border": "1px solid rgba(200,200,200, 0.3)",
+    "border-radius": "0.3em",
+    "background-color": "rgba(30, 30, 30, 0.5)"
+  });
+
+  // Create html skyCanvas
+  var skyCanvas = document.createElement("canvas");
+  // Set context for canvas
+  var ctx = skyCanvas.getContext("2d");
+  // Set width and height of canvas
+  skyCanvas.setAttribute("width", screen.width);
+  skyCanvas.setAttribute("height", 900);
+  $(skyCanvas).css({
+    "z-index": -500,
+    "position": "absolute"
+  });
+  // Prepend to body
+  $("body").prepend(skyCanvas);
+
+  // For loop the random generation of
+  // stars (circles and dots)
+  for (var i = 0; i < 1000; i++) {
+    var x = Math.floor(Math.random()*screen.width);
+    var y = Math.floor(Math.random()*900);
+    var radius = Math.floor(Math.random()*2);
+    if (i % 2 === 0) {
+      drawCircle(x, y, radius);
+    }
+    else {
+      drawDot(x, y);
+    }
   }
 
-// At 6am (before sun in frame)
-if (now.getHours() === 6) {
-  $("body").css({
-    "background": "linear-gradient(rgba(228, 152, 156, 1), rgb(51, 142, 172))" /* Standard syntax */
+  // Create html moonCanvas
+  var moonCanvas = document.createElement("canvas");
+  // Set context for canvas
+  var ctx = moonCanvas.getContext("2d");
+  // Set width and height of canvas
+  moonCanvas.setAttribute("width", screen.width);
+  moonCanvas.setAttribute("height", 500);
+  $(moonCanvas).css({
+    "position": "absolute",
+    "z-index": -450
   });
-}
-// At 7am
-else if (now.getHours() === 7) {
-  $("body").css({
-    "background": "linear-gradient(rgba(228, 152, 156, 0.7), rgb(51, 142, 172))" /* Standard syntax */
-  });
-}
-// At 8am
-else if (now.getHours() === 8) {
-  $("body").css({
-    "background": "linear-gradient(rgba(228, 152, 156, 0.5), rgb(51, 142, 172))" /* Standard syntax */
-  });
-}
-// At 4pm
-else if (now.getHours() === 16) {
-  $("body").css({
-    "background": "linear-gradient(rgba(232, 100, 67, 0.5), rgba(43, 121, 167, 0.5))" /* Standard syntax */
-  });
-}
-// At 5pm
-else if (now.getHours() === 17) {
-  $("body").css({
-    "background": "linear-gradient(rgba(232, 100, 67, 0.7), rgba(43, 121, 167, 0.7))" /* Standard syntax */
-  });
-}
-// At 6pm (sun is out of frame)
-else if (now.getHours() === 18) {
-  $("body").css({
-    "background": "linear-gradient(rgba(232, 100, 67, 1), rgba(43, 121, 167, 1))" /* Standard syntax */
-  });
-}
+  // Prepend to body
+  $("body").prepend(moonCanvas);
 
+  moonAnimation();
 
-
-// FOR TESTING COLOR CHANGES ONLY
-// var counter = 0;
-//
-// var inter = setInterval(function(){
-//   console.log(counter);
-//   // At 6am (before sun in frame)
-//   if (counter === 1) {
-//     $("body").css({
-//       "background": "linear-gradient(rgba(228, 152, 156, 1), rgb(51, 142, 172))" /* Standard syntax */
-//     });
-//   }
-//   // At 7am
-//   else if (counter === 2) {
-//     $("body").css({
-//       "background": "linear-gradient(rgba(228, 152, 156, 0.7), rgb(51, 142, 172))" /* Standard syntax */
-//     });
-//   }
-//   // At 8am
-//   else if (counter === 3) {
-//     $("body").css({
-//       "background": "linear-gradient(rgba(228, 152, 156, 0.5), rgb(51, 142, 172))" /* Standard syntax */
-//     });
-//   }
-//   // At 4pm
-//   else if (counter === 4) {
-//     $("body").css({
-//       "background": "linear-gradient(rgba(232, 100, 67, 0.5), rgba(43, 121, 167, 0.5))" /* Standard syntax */
-//     });
-//   }
-//   // At 5pm
-//   else if (counter === 5) {
-//     $("body").css({
-//       "background": "linear-gradient(rgba(232, 100, 67, 0.7), rgba(43, 121, 167, 0.7))" /* Standard syntax */
-//     });
-//   }
-//   // At 6pm (sun is out of frame)
-//   else if (counter === 6) {
-//     $("body").css({
-//       "background": "linear-gradient(rgba(232, 100, 67, 1), rgba(43, 121, 167, 1))" /* Standard syntax */
-//     });
-//   }
-//   else if (counter > 6) {
-//       counter = -1;
-//       //clearInterval(inter);
-//   }
-//   counter++;
-// }, 3000);
+  if (now.getHours() === 19) {
+    $("body").css({
+      "background": "linear-gradient(rgb(30, 30, 30), rgb(43, 121, 167))" /* Standard syntax */
+    });
+  }
+  else if (now.getHours() === 5) {
+    $("body").css({
+      "background": "linear-gradient(rgb(30, 30, 30), rgb(228, 152, 156))" /* Standard syntax */
+    });
+  }
+}
