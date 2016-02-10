@@ -6,11 +6,11 @@ var requestAnimationFrame = window.requestAnimationFrame ||
                             window.msRequestAnimationFrame;
 
 // Define functions for daylight
-function drawSun () {
+function drawSun (x, y) {
   // Draw the circle and fill it
+  ctx.fillStyle = "rgba(247, 206, 0, 0.7)";
   ctx.beginPath();
   ctx.arc(x, y, 100, 2*Math.PI, 0);
-  ctx.fillStyle = "rgba(247, 206, 0, 0.7)";
   ctx.fill();
 }
 
@@ -50,7 +50,7 @@ function sunAnimation() {
   var x = hourMap[now.getHours().toString()], y = 30;
   ctx.clearRect(0, 0, screen.width, 500);
   ctx.save();
-  drawSun();
+  drawSun(x, y);
   // Translate Canvas to center of circle
   ctx.translate(x, y);
   var time = new Date();
@@ -124,11 +124,39 @@ function moonAnimation() {
 // When page loads get current hour and if
 // it is between daylight hours run code
 // below.
+// FOR TESTING THE DIFFERENT TIME SHIFTS
+// var timeArr = [
+//   'December 17, 1995 00:00:00',
+//   'December 17, 1995 01:00:00',
+//   'December 17, 1995 02:00:00',
+//   'December 17, 1995 03:00:00',
+//   'December 17, 1995 04:00:00',
+//   'December 17, 1995 05:00:00',
+//   'December 17, 1995 06:00:00',
+//   'December 17, 1995 07:00:00',
+//   'December 17, 1995 08:00:00',
+//   'December 17, 1995 09:00:00',
+//   'December 17, 1995 10:00:00',
+//   'December 17, 1995 11:00:00',
+//   'December 17, 1995 12:00:00',
+//   'December 17, 1995 13:00:00',
+//   'December 17, 1995 14:00:00',
+//   'December 17, 1995 15:00:00',
+//   'December 17, 1995 16:00:00',
+//   'December 17, 1995 17:00:00',
+//   'December 17, 1995 18:00:00',
+//   'December 17, 1995 19:00:00',
+//   'December 17, 1995 20:00:00',
+//   'December 17, 1995 21:00:00',
+//   'December 17, 1995 22:00:00',
+//   'December 17, 1995 23:00:00'
+// ];
+// var now = new Date(timeArr[24]);
 var now = new Date();
-console.log(now.getHours());
+//console.log(now.getHours());
 
-// Only draw sun animation between 7am and 6:59pm
-if (now.getHours() > 6 && now.getHours() < 19) {
+// Only draw sun animation between 6am and 6:59pm
+if (now.getHours() > 5 && now.getHours() < 19) {
   // Create a canvas the length of the
   // screen and append it to the body
   var canvas = document.createElement("canvas");
@@ -137,14 +165,14 @@ if (now.getHours() > 6 && now.getHours() < 19) {
   canvas.setAttribute("height", 500);
   $(canvas).css({
     "position": "absolute",
-    "z-index": "-400"
+    "z-index": -450
   });
 
   $("body").prepend(canvas);
 
   var ctx = canvas.getContext("2d");
   // Create Map of x values based
-  // on hours and screenwidth
+  // on screenwidth
   var hourMap = {
     "7": (screen.width * 11/11),
     "8": (screen.width * 10/11),
@@ -160,10 +188,10 @@ if (now.getHours() > 6 && now.getHours() < 19) {
     "18": (screen.width * 0/11)
   };
 
-  // Position sun based on hour of daylight
-  //var x = hourMap[now.getHours().toString()], y = 30;
-  //var x = hourMap["6"], y = 30; // For Testing Purposes only
+  // Sun is not up at 6th hr, only between 7th hr and 18th hr
+  if (now.getHours() > 6 && now.getHours() < 19) {
     sunAnimation();
+  }
 
   // At 6am (before sun in frame)
   if (now.getHours() === 6) {
@@ -277,7 +305,10 @@ else if (now.getHours() < 6 || now.getHours() > 18) {
   // Prepend to body
   $("body").prepend(moonCanvas);
 
-  moonAnimation();
+  // Moon is not up at 19th hr or 5th hr
+  if (now.getHours() !== 19 && now.getHours() !== 5) {
+    moonAnimation();
+  }
 
   if (now.getHours() === 19) {
     $("body").css({

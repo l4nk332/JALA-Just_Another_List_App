@@ -5,11 +5,7 @@ into JALA but have not been:
 
 ###Front-end:
 
-  - Attempt to create the cloud animations via html canvas
-
   - Fix jQuery drop animation on email form for Firefox.
-
-  - Add starry night sky animation to application.
 
   - Consider making checkboxes larger (mobile-friendly).
 
@@ -19,7 +15,3 @@ into JALA but have not been:
 
 
 ###Back-end:
-
-  - Configure the application so that if it is night time the
-    new starry animation is served as a backdrop, otherwise have
-    it be the sunny cloud backdrop.
