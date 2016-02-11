@@ -14,8 +14,7 @@ $(document).ready(function() {
     }
   });
 
-  // Toggle strikethrough item and move it to the top
-  // when checked is true.
+  // Toggle strikethrough item when checked is true.
   $("body").on('click', ".check", function() {
     $(this).next('.text').toggleClass("strikeToggle");
 
@@ -30,6 +29,63 @@ $(document).ready(function() {
     }
   });
 
+  // Allow for shift+click multi select list item
+  $("body").on('click', ".check", function() {
+    // A function that returns the index of a the first
+    // checked item it finds
+    function returnCheckedItem(startIndex) {
+      var checkedArr = [];
+      // Traverse backward from startIndex
+      for (var i=startIndex-1; i > -1; i--) {
+        var currentNode = $("li").get(i);
+        // If item is found checked return its index
+        if ($(currentNode).children(".text").hasClass("strikeToggle")) {
+          checkedArr.push(i);
+        }
+      }
+      if (checkedArr.length > 0) {
+        return checkedArr[checkedArr.length-1];
+      } else {
+        // If no item is found checked return false
+        return false;
+      }
+    }
+
+    // A function that takes two indexes and checks all
+    // items between them
+    function batchCheck(indx1, indx2) {
+      // If false check everything to beginning of list
+      if (indx2 === false) {
+        indx2 = 0;
+      }
+      // Traverse backward from startIndex
+      for (var i=indx1; i > indx2-1; i--) {
+        var currentNode = $("li").get(i);
+        // If checkbox is not disabled
+        if (!$(currentNode).children(".check").prop("disabled")) {
+          // Add strikeToggle and disable textbox
+          $(currentNode).children(".text").addClass("strikeToggle");
+          $(currentNode).children(".text").prop("disabled", true);
+          // Change checkbox value to checked
+          $(currentNode).children(".check").prop('checked', true);
+          // If Hidden Toggle is on then hide the checked item
+          if (hidden) {
+            $(currentNode).addClass("hiddenToggle");
+          }
+        }
+      }
+    }
+
+    // If item shift+clicked is unchecked check it and all
+    // list items up to next prev checked sibling
+    if (event.shiftKey) {
+      var startNode = $(this).parent("li");
+      var startIndx = $("li").index(startNode);
+      //console.log(returnCheckedItem(startIndx));
+      var endIndx = returnCheckedItem(startIndx);
+      batchCheck(startIndx, endIndx);
+    }
+  });
 
   // Toggle Show/Hide Completed
   $("body").on("click", "#hiddenButton", function() {
