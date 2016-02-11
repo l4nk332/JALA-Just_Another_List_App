@@ -11,6 +11,10 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js"></script>
     <!--Load normalize.css-->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <!--Loading Tooltipster css-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/tooltipster.min.css">
+    <!--Loading Tooltipster light theme-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/themes/tooltipster-light.min.css">
     <!--Load jquery-ui css stylesheet -->
     <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
     <!--Load google fonts-->
@@ -19,10 +23,10 @@
   </head>
   <body>
     <div class="list-header">
-        <input value="My List" id="listTitle" maxlength="19" tabindex="0">
-      <button type="button" class="button" id="removeButton" tabindex="-1">Remove Checked</button>
-      <button type="button" class="button" id="hiddenButton" tabindex="-1">Toggle Hidden</button>
-      <button type="button" class="button" id="addItemButton" tabindex="-1">+</button>
+        <input value="My List" id="listTitle" class="tooltip" title="Edit list title" maxlength="19" tabindex="0">
+      <button type="button" class="button tooltip" title="Delete all checked items" id="removeButton" tabindex="-1">Remove Checked</button>
+      <button type="button" class="button tooltip" title="Hide/Show checked items" id="hiddenButton" tabindex="-1">Toggle Hidden</button>
+      <button type="button" class="button tooltip" title="Add Item &#91; Press &#8629; &#93;" id="addItemButton" tabindex="-1">+</button>
     </div>
     <div class="clouds cloudA"></div>
     <div class="clouds cloudB"></div>
@@ -33,19 +37,21 @@
           </ul>
       </form>
       <div id="list-footer">
-        <button type="button" class="button" id="saveButton" tabindex="-1">Save</button>
-        <button type="button" class="button" id="emailButton" tabindex="-1">Email This List</button>
-        <a class="downloadLink" download tabindex="-1"><button type="button" class="button" id="exportButton" tabindex="-1">Export</button></a>
+        <button type="button" class="button tooltip" title="Save current list" id="saveButton" tabindex="-1">Save</button>
+        <button type="button" class="button tooltip" title="Send list via email" id="emailButton" tabindex="-1">Email</button>
+        <a class="downloadLink" download tabindex="-1"><button type="button" class="button tooltip" title="Download list" id="exportButton" tabindex="-1">Export</button></a>
       </div>
       <!-- This is the email pop-up that will toggle hidden -->
       <div class="email-form hiddenToggle">
         <input class="email-input" value="name@mail.com">
-        <button id="send-email" class="button disabled">Send</button>
+        <button id="send-email" class="button disabled tooltip">Send</button>
       </div>
   <!--Load jquery-->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
   <!--Load jquery-ui-->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <!--Load jquery tooltipster plug-in-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js"></script>
   <!--Load main.js file-->
   <script type="text/javascript" src="./_script/main.js"></script>
   <script type="text/javascript" src="./_script/day_night_animation.js"></script>

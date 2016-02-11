@@ -1,4 +1,11 @@
 $(document).ready(function() {
+  // Initialize Tooltipster
+  $('.tooltip').tooltipster({
+    theme: "tooltipster-light",
+    delay: 1200,
+    timer: 1500
+  });
+
   // This is a boolean that keeps track of the hiddenToggle
   // being either on or off
   var hidden = false;
@@ -267,18 +274,15 @@ $(document).ready(function() {
   // When 'Send' is clicked make a req and hide the email form
   $("body").on("click", "#send-email", function() {
     if (!$(this).hasClass("disabled")) {
-      // Assign the type value
-      // var fileType = "txt";
-      // if ($("#html-type").prop("checked")) {
-      //   fileType = "html";
-      // }
-      // console.log(fileType);
       // Send a request to send an email
       $.post('/jala-email', {email: $(".email-input").val(), title: $("#listTitle").val(), type: "html"}, function() {
         // Reset application
         $("#emailButton").removeClass("disabled");
         $(".email-form").hide("drop", { direction: "up" }, 1000);
+        $(this).removeAttr("title");
       });
+    } else {
+      $(this).attr("title", "Please save before sending");
     }
   });
 });
