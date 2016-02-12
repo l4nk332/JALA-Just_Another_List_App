@@ -1,6 +1,6 @@
 #JALA: _Just Another List App_
 ###Basic Description
-Just as the name suggests, JALA is simply a to-do list
+Just as the name suggests, JALA [_jay-la_] is simply a to-do list
 application meant to run in a local home or work environment
 via [Node.js](https://nodejs.org/en/) and its modules.
 
@@ -8,7 +8,7 @@ via [Node.js](https://nodejs.org/en/) and its modules.
 (https://raw.githubusercontent.com/l4nk332/JALA-Just_Another_List_App/master/public/_assets/img/jala_example2.gif)
 
 The main objective of this application is to provide a
-simple and easy to use interface in which a group of
+simple, easy-to-use interface in which a group of
 individuals (*or maybe just one person...*) will be able
 to keep track of things that would normally be placed
 on a checklist.
@@ -19,12 +19,14 @@ sticky notes around the office or creating a collage of paperwork
 on the refrigerator, why not utilize something that connects to
 all networking devices you own?
 
+
 ###Getting Started
 In order to begin using JALA you will need to have [Node](https://nodejs.org/en/) and [NPM](https://www.npmjs.com/)
 (which will come bundled with Node) installed on your computer.
 
 If you would like to try out JALA's interface [here](http://codepen.io/l4nk33/full/jWXBmx/) is a link
 to a CodePen implementation of the client-side.
+
 
 #####Node Dependencies
 All Node Dependencies for the application will be identified and
@@ -47,6 +49,7 @@ This will install any of the dependencies that are necessary for
 the application and not found on the computer or within the
 *node_modules* folder within the working directory.
 
+
 #####Other Dependencies
 There are a few other dependencies that will be used in JALA.
 These dependencies will be linked to via [cdnjs](https://cdnjs.com/) in the
@@ -58,6 +61,7 @@ installed unless upon preference (e.g allow JALA to work offline):
   - [Normalize](https://necolas.github.io/normalize.css/)
   - [Babel](https://babeljs.io/)
 
+
 ###Application Set-up
 To run the application simply navigate to the root directory of the
 project and run:
@@ -68,10 +72,11 @@ project and run:
 	  write files on the system. In this case prepend sudo:* `$ sudo node app`
 
 Once up and running open your Web Browser and navigate to the IP address
-of the computer (*server*) running the application followed by the a colon and the port
+of the computer (*server*) running the application followed by a colon and the port
 number (*3000 by default*):
 
 `192.168.1.1:3000`
+
 
 #####Specifying Port Number
 You can specify the port number JALA will listen on by appending the *-p*
@@ -81,22 +86,21 @@ flag followed by a number. Here is an example of JALA running on port 345:
 
 If no port number is specified JALA will run on **port 3000** by default.
 
+
 #####Changing Default Email Address
 By default the email address used by JALA is a generic gmail address.
+In order to change this to a custom email address simply edit the bolded sections
+from this line of code in the _app.js_ file:
 
-In order to change this to a custom email address simply change this line
-code in the _app.js_ file:
-
-var transporter = nodemailer.createTransport('smtps:// _youremail_ %40 _email.com_ : _password_ @smtp. _gmail.com_ ');
+`var transporter = nodemailer.createTransport('smtps://user%40gmail.com:pass@smtp.gmail.com');`
 
 Additional information regarding this matter can be found in the
-[nodemailer documentation](https://github.com/nodemailer/nodemailer).
+[nodemailer documentation](https://github.com/nodemailer/nodemailer#tldr-usage-example).
+
 
 #####Controls
-Most controls within JALA are straight-forward, especially with to provided
-tooltips.
-
-However here are a couple of available functionalities to keep in mind:
+Most controls within JALA are straight-forward and hinted using tooltips.
+However, here are a couple of available functionalities to keep in mind:
 
 <kbd>shift</kbd>+<kbd>click</kbd>
 
@@ -109,10 +113,10 @@ However here are a couple of available functionalities to keep in mind:
   * Will append a new empty list item. This is a short-hand to simply clicking
     the _+_ button.
 
-###Application Logs
-Upon start-up JALA will begin logging request and file system information.
 
-Logs are stream to the console while simultaneously being appended to the
+###Application Logs
+Upon start-up JALA will begin logging requests and file system information.
+Logs are streamed to the console, while simultaneously being appended to the
 log file _./logs/app.log_
 
 The information being logged to _app.log_ includes:
@@ -125,12 +129,13 @@ The information being logged to _app.log_ includes:
   - Email Address (_recipient_)
   - Email Subject
 
+
 ###List Files
 JALA will also keep all saved lists on the server's file system in the
 _/public/lists/_ directory.
 
-Take note that saving lists is a destructive action, so lists with the
+**Note:** _Saving lists is a destructive action. Files with the
 same name will write over each other. The name of the file is the title
-of the list.
+of the list._
 
 Files are save in both _.txt_ and _.html_ formats.
