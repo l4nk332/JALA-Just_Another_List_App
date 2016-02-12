@@ -5,7 +5,7 @@ application meant to run in a local home or work environment
 via [Node.js](https://nodejs.org/en/) and its modules.
 
 ![JALA Functionality Example]
-(https://raw.githubusercontent.com/l4nk332/JALA-Just_Another_List_App/master/public/_assets/img/jala_example.gif)
+(https://raw.githubusercontent.com/l4nk332/JALA-Just_Another_List_App/master/public/_assets/img/jala_example2.gif)
 
 The main objective of this application is to provide a
 simple and easy to use interface in which a group of
@@ -22,6 +22,9 @@ all networking devices you own?
 ###Getting Started
 In order to begin using JALA you will need to have [Node](https://nodejs.org/en/) and [NPM](https://www.npmjs.com/)
 (which will come bundled with Node) installed on your computer.
+
+If you would like to try out JALA's interface [here](http://codepen.io/l4nk33/full/jWXBmx/) is a link
+to a CodePen implementation of the client-side.
 
 #####Node Dependencies
 All Node Dependencies for the application will be identified and
@@ -51,6 +54,7 @@ _index.html_ file and therefore will not need to be downloaded or
 installed unless upon preference (e.g allow JALA to work offline):
   - [jQuery](https://jquery.com/)
   - [jQuery UI](https://jqueryui.com/)
+  - [Tooltipster](https://iamceege.github.io/tooltipster/)
   - [Normalize](https://necolas.github.io/normalize.css/)
   - [Babel](https://babeljs.io/)
 
@@ -63,8 +67,8 @@ project and run:
 **Note:** *Write privileges might be necessary for JALA to properly run and
 	  write files on the system. In this case prepend sudo:* `$ sudo node app`
 
-Once up and running open your Web Browser and navigate to the IP address 
-of the computer (*server*) running the application followed by the a colon and the port 
+Once up and running open your Web Browser and navigate to the IP address
+of the computer (*server*) running the application followed by the a colon and the port
 number (*3000 by default*):
 
 `192.168.1.1:3000`
@@ -76,3 +80,57 @@ flag followed by a number. Here is an example of JALA running on port 345:
 `$ node app -p 345`
 
 If no port number is specified JALA will run on **port 3000** by default.
+
+#####Changing Default Email Address
+By default the email address used by JALA is a generic gmail address.
+
+In order to change this to a custom email address simply change this line
+code in the _app.js_ file:
+
+var transporter = nodemailer.createTransport('smtps:// _youremail_ %40 _email.com_ : _password_ @smtp. _gmail.com_ ');
+
+Additional information regarding this matter can be found in the
+[nodemailer documentation](https://github.com/nodemailer/nodemailer).
+
+#####Controls
+Most controls within JALA are straight-forward, especially with to provided
+tooltips.
+
+However here are a couple of available functionalities to keep in mind:
+
+<kbd>shift</kbd>+<kbd>click</kbd>
+
+  * Will check all list items from the currently checked item up to the
+    last checked item (_traversing up the list_). If no items above are checked
+    all list items above the clicked one will be marked as checked.
+
+<kbd>return</kbd>
+
+  * Will append a new empty list item. This is a short-hand to simply clicking
+    the _+_ button.
+
+###Application Logs
+Upon start-up JALA will begin logging request and file system information.
+
+Logs are stream to the console while simultaneously being appended to the
+log file _./logs/app.log_
+
+The information being logged to _app.log_ includes:
+
+  - Date
+  - Time (_24 hour_)
+  - Request Method
+  - Request Url
+  - Client IP Address
+  - Email Address (_recipient_)
+  - Email Subject
+
+###List Files
+JALA will also keep all saved lists on the server's file system in the
+_/public/lists/_ directory.
+
+Take note that saving lists is a destructive action, so lists with the
+same name will write over each other. The name of the file is the title
+of the list.
+
+Files are save in both _.txt_ and _.html_ formats.
