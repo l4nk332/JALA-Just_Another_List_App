@@ -125,7 +125,7 @@ The information being logged to _app.log_ includes:
   - Time (_24 hour_)
   - Request Method
   - Request Url
-  - Client IP Address
+  - Client IP Address (_ipv4 format_)
   - Email Address (_recipient_)
   - Email Subject
 
