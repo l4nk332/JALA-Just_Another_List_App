@@ -1,5 +1,5 @@
-#JALA: _Just Another List App_
-###Basic Description
+# JALA: _Just Another List App_
+### Basic Description
 Just as the name suggests, JALA [_jay-la_] is simply a to-do list
 application meant to run in a local home or work environment
 via [Node.js](https://nodejs.org/en/) and its modules.
@@ -20,7 +20,7 @@ on the refrigerator, why not utilize something that connects to
 all networking devices you own?
 
 
-###Getting Started
+### Getting Started
 In order to begin using JALA you will need to have [Node](https://nodejs.org/en/) and [NPM](https://www.npmjs.com/)
 (which will come bundled with Node) installed on your computer.
 
@@ -28,7 +28,7 @@ If you would like to try out JALA's interface [here](http://codepen.io/l4nk33/fu
 to a CodePen implementation of the client-side.
 
 
-#####Node Dependencies
+##### Node Dependencies
 All Node Dependencies for the application will be identified and
 placed in the _package.json_ file. The current Node module
 dependencies for this project are:
@@ -50,7 +50,7 @@ the application and not found on the computer or within the
 *node_modules* folder within the working directory.
 
 
-#####Other Dependencies
+##### Other Dependencies
 There are a few other dependencies that will be used in JALA.
 These dependencies will be linked to via [cdnjs](https://cdnjs.com/) in the
 _index.html_ file and therefore will not need to be downloaded or
@@ -62,7 +62,7 @@ installed unless upon preference (e.g allow JALA to work offline):
   - [Babel](https://babeljs.io/)
 
 
-###Application Set-up
+### Application Set-up
 To run the application simply navigate to the root directory of the
 project and run:
 
@@ -78,7 +78,7 @@ number (*3000 by default*):
 `192.168.1.1:3000`
 
 
-#####Specifying Port Number
+##### Specifying Port Number
 You can specify the port number JALA will listen on by appending the *-p*
 flag followed by a number. Here is an example of JALA running on port 345:
 
@@ -87,7 +87,7 @@ flag followed by a number. Here is an example of JALA running on port 345:
 If no port number is specified JALA will run on **port 3000** by default.
 
 
-#####Changing Default Email Address
+##### Changing Default Email Address
 By default the email address used by JALA is a generic gmail address.
 In order to change this to a custom email address simply edit the bolded sections
 from this line of code in the _app.js_ file:
@@ -98,7 +98,7 @@ Additional information regarding this matter can be found in the
 [nodemailer documentation](https://github.com/nodemailer/nodemailer#tldr-usage-example).
 
 
-#####Controls
+##### Controls
 Most controls within JALA are straight-forward and hinted using tooltips.
 However, here are a couple of available functionalities to keep in mind:
 
@@ -114,7 +114,7 @@ However, here are a couple of available functionalities to keep in mind:
     the _+_ button.
 
 
-###Application Logs
+### Application Logs
 Upon start-up JALA will begin logging requests and file system information.
 Logs are streamed to the console, while simultaneously being appended to the
 log file _./logs/app.log_
@@ -130,7 +130,7 @@ The information being logged to _app.log_ includes:
   - Email Subject
 
 
-###List Files
+### List Files
 JALA will also keep all saved lists on the server's file system in the
 _/public/lists/_ directory.
 
